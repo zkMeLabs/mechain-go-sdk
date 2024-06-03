@@ -25,11 +25,11 @@ import (
 	httplib "github.com/bnb-chain/greenfield-common/go/http"
 	"github.com/bnb-chain/greenfield-go-sdk/pkg/utils"
 	"github.com/bnb-chain/greenfield-go-sdk/types"
-	sdkclient "github.com/bnb-chain/greenfield/sdk/client"
-	gnfdSdkTypes "github.com/bnb-chain/greenfield/sdk/types"
-	permTypes "github.com/bnb-chain/greenfield/x/permission/types"
-	storageTypes "github.com/bnb-chain/greenfield/x/storage/types"
-	types2 "github.com/bnb-chain/greenfield/x/virtualgroup/types"
+	sdkclient "github.com/evmos/evmos/v12/sdk/client"
+	gnfdSdkTypes "github.com/evmos/evmos/v12/sdk/types"
+	permTypes "github.com/evmos/evmos/v12/x/permission/types"
+	storageTypes "github.com/evmos/evmos/v12/x/storage/types"
+	types2 "github.com/evmos/evmos/v12/x/virtualgroup/types"
 )
 
 // IClient - Declare all Greenfield SDK Client APIs, including APIs for interacting with Greenfield Blockchain and SPs.
@@ -45,7 +45,6 @@ type IClient interface {
 	IProposalClient
 	IValidatorClient
 	IDistributionClient
-	ICrossChainClient
 	IFeeGrantClient
 	IVirtualGroupClient
 	IAuthClient

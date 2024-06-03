@@ -15,20 +15,21 @@ import (
 	"time"
 
 	sdkmath "cosmossdk.io/math"
+
 	ctypes "github.com/cometbft/cometbft/rpc/core/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/tx"
 	"github.com/rs/zerolog/log"
 
-	gnfdsdk "github.com/bnb-chain/greenfield/sdk/types"
-	gnfdTypes "github.com/bnb-chain/greenfield/types"
-	"github.com/bnb-chain/greenfield/types/s3util"
-	permTypes "github.com/bnb-chain/greenfield/x/permission/types"
-	storageTypes "github.com/bnb-chain/greenfield/x/storage/types"
-	virtualgroupTypes "github.com/bnb-chain/greenfield/x/virtualgroup/types"
-
 	"github.com/bnb-chain/greenfield-go-sdk/pkg/utils"
 	"github.com/bnb-chain/greenfield-go-sdk/types"
+
+	gnfdsdk "github.com/evmos/evmos/v12/sdk/types"
+	gnfdTypes "github.com/evmos/evmos/v12/types"
+	"github.com/evmos/evmos/v12/types/s3util"
+	permTypes "github.com/evmos/evmos/v12/x/permission/types"
+	storageTypes "github.com/evmos/evmos/v12/x/storage/types"
+	virtualgroupTypes "github.com/evmos/evmos/v12/x/virtualgroup/types"
 )
 
 // IBucketClient interface defines functions related to bucket.

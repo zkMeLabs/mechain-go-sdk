@@ -19,8 +19,8 @@ import (
 	"google.golang.org/grpc"
 
 	gosdktypes "github.com/bnb-chain/greenfield-go-sdk/types"
-	"github.com/bnb-chain/greenfield/sdk/types"
-	storageTypes "github.com/bnb-chain/greenfield/x/storage/types"
+	"github.com/evmos/evmos/v12/sdk/types"
+	storageTypes "github.com/evmos/evmos/v12/x/storage/types"
 )
 
 // IBasicClient interface defines basic functions of greenfield Client.

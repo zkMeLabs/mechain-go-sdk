@@ -11,21 +11,22 @@ import (
 	"testing"
 	"time"
 
-	"github.com/bnb-chain/greenfield/types/resource"
+	"github.com/evmos/evmos/v12/types/resource"
 
 	"cosmossdk.io/math"
+
 	"github.com/stretchr/testify/suite"
 
 	"github.com/bnb-chain/greenfield-go-sdk/client"
 	"github.com/bnb-chain/greenfield-go-sdk/e2e/basesuite"
 	"github.com/bnb-chain/greenfield-go-sdk/pkg/utils"
 	"github.com/bnb-chain/greenfield-go-sdk/types"
-	types2 "github.com/bnb-chain/greenfield/sdk/types"
-	storageTestUtil "github.com/bnb-chain/greenfield/testutil/storage"
-	greenfield_types "github.com/bnb-chain/greenfield/types"
-	permTypes "github.com/bnb-chain/greenfield/x/permission/types"
-	spTypes "github.com/bnb-chain/greenfield/x/sp/types"
-	storageTypes "github.com/bnb-chain/greenfield/x/storage/types"
+	types2 "github.com/evmos/evmos/v12/sdk/types"
+	storageTestUtil "github.com/evmos/evmos/v12/testutil/storage"
+	greenfield_types "github.com/evmos/evmos/v12/types"
+	permTypes "github.com/evmos/evmos/v12/x/permission/types"
+	spTypes "github.com/evmos/evmos/v12/x/sp/types"
+	storageTypes "github.com/evmos/evmos/v12/x/storage/types"
 )
 
 type StorageTestSuite struct {
@@ -304,7 +305,6 @@ func (s *StorageTestSuite) Test_Object() {
 	err = s.Client.DelegateUpdateObjectContent(s.ClientContext, bucketName, objectName2, newObjectSize, bytes.NewReader(newBuffer.Bytes()), types.PutObjectOptions{})
 	s.Require().NoError(err)
 	s.WaitSealObject(bucketName, objectName2)
-
 }
 
 func (s *StorageTestSuite) Test_Group() {

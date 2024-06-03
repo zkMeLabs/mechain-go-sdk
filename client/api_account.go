@@ -6,11 +6,11 @@ import (
 
 	"cosmossdk.io/math"
 	"github.com/bnb-chain/greenfield-go-sdk/types"
-	gnfdSdkTypes "github.com/bnb-chain/greenfield/sdk/types"
-	paymentTypes "github.com/bnb-chain/greenfield/x/payment/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	authTypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 	bankTypes "github.com/cosmos/cosmos-sdk/x/bank/types"
+	gnfdSdkTypes "github.com/evmos/evmos/v12/sdk/types"
+	paymentTypes "github.com/evmos/evmos/v12/x/payment/types"
 )
 
 // IAccountClient - Client APIs for operating Greenfield accounts.

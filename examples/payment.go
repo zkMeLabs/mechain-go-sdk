@@ -5,7 +5,7 @@ import (
 	"log"
 
 	"cosmossdk.io/math"
-	gnfdsdktypes "github.com/bnb-chain/greenfield/sdk/types"
+	gnfdsdktypes "github.com/evmos/evmos/v12/sdk/types"
 
 	"github.com/bnb-chain/greenfield-go-sdk/client"
 	"github.com/bnb-chain/greenfield-go-sdk/types"

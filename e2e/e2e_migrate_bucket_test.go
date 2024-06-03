@@ -13,9 +13,9 @@ package e2e
 //
 //	"github.com/bnb-chain/greenfield-go-sdk/e2e/basesuite"
 //	"github.com/bnb-chain/greenfield-go-sdk/types"
-//	storageTestUtil "github.com/bnb-chain/greenfield/testutil/storage"
-//	spTypes "github.com/bnb-chain/greenfield/x/sp/types"
-//	storageTypes "github.com/bnb-chain/greenfield/x/storage/types"
+//	storageTestUtil "github.com/evmos/evmos/v12/testutil/storage"
+//	spTypes "github.com/evmos/evmos/v12/x/sp/types"
+//	storageTypes "github.com/evmos/evmos/v12/x/storage/types"
 //)
 //
 //type BucketMigrateTestSuite struct {

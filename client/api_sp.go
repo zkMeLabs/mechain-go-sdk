@@ -13,11 +13,11 @@ import (
 	"cosmossdk.io/math"
 	"github.com/bnb-chain/greenfield-go-sdk/pkg/utils"
 	"github.com/bnb-chain/greenfield-go-sdk/types"
-	gnfdSdkTypes "github.com/bnb-chain/greenfield/sdk/types"
-	spTypes "github.com/bnb-chain/greenfield/x/sp/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/x/authz"
 	govTypes "github.com/cosmos/cosmos-sdk/x/gov/types"
+	gnfdSdkTypes "github.com/evmos/evmos/v12/sdk/types"
+	spTypes "github.com/evmos/evmos/v12/x/sp/types"
 )
 
 // ISPClient interface defines basic functions related to Storage Provider.
