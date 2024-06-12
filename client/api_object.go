@@ -24,11 +24,11 @@ import (
 	hashlib "github.com/bnb-chain/greenfield-common/go/hash"
 	"github.com/bnb-chain/greenfield-go-sdk/pkg/utils"
 	"github.com/bnb-chain/greenfield-go-sdk/types"
-	gnfdsdk "github.com/bnb-chain/greenfield/sdk/types"
-	gnfdTypes "github.com/bnb-chain/greenfield/types"
-	"github.com/bnb-chain/greenfield/types/s3util"
-	permTypes "github.com/bnb-chain/greenfield/x/permission/types"
-	storageTypes "github.com/bnb-chain/greenfield/x/storage/types"
+	gnfdsdk "github.com/evmos/evmos/v12/sdk/types"
+	gnfdTypes "github.com/evmos/evmos/v12/types"
+	"github.com/evmos/evmos/v12/types/s3util"
+	permTypes "github.com/evmos/evmos/v12/x/permission/types"
+	storageTypes "github.com/evmos/evmos/v12/x/storage/types"
 )
 
 // IObjectClient interface defines functions related to object operations.
@@ -381,7 +381,6 @@ func (c *Client) putObject(ctx context.Context, bucketName, objectName string, o
 
 func (c *Client) delegateCreateFolder(ctx context.Context, bucketName, objectName string, opts types.PutObjectOptions,
 ) (err error) {
-
 	var contentType string
 	if opts.ContentType != "" {
 		contentType = opts.ContentType

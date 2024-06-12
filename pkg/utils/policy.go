@@ -3,9 +3,9 @@ package utils
 import (
 	sdkmath "cosmossdk.io/math"
 	"github.com/bnb-chain/greenfield-go-sdk/types"
-	"github.com/bnb-chain/greenfield/types/common"
-	permTypes "github.com/bnb-chain/greenfield/x/permission/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
+	"github.com/evmos/evmos/v12/types/common"
+	permTypes "github.com/evmos/evmos/v12/x/permission/types"
 )
 
 // NewStatement return the statement of permission module

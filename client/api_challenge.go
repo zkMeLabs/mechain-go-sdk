@@ -13,9 +13,9 @@ import (
 	"strings"
 
 	"cosmossdk.io/math"
-	gnfdsdktypes "github.com/bnb-chain/greenfield/sdk/types"
-	challengetypes "github.com/bnb-chain/greenfield/x/challenge/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
+	gnfdsdktypes "github.com/evmos/evmos/v12/sdk/types"
+	challengetypes "github.com/evmos/evmos/v12/x/challenge/types"
 	"github.com/rs/zerolog/log"
 
 	"github.com/bnb-chain/greenfield-go-sdk/pkg/utils"

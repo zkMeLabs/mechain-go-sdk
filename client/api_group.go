@@ -19,10 +19,10 @@ import (
 
 	"github.com/bnb-chain/greenfield-go-sdk/pkg/utils"
 	"github.com/bnb-chain/greenfield-go-sdk/types"
-	gnfdsdk "github.com/bnb-chain/greenfield/sdk/types"
-	gnfdTypes "github.com/bnb-chain/greenfield/types"
-	permTypes "github.com/bnb-chain/greenfield/x/permission/types"
-	storageTypes "github.com/bnb-chain/greenfield/x/storage/types"
+	gnfdsdk "github.com/evmos/evmos/v12/sdk/types"
+	gnfdTypes "github.com/evmos/evmos/v12/types"
+	permTypes "github.com/evmos/evmos/v12/x/permission/types"
+	storageTypes "github.com/evmos/evmos/v12/x/storage/types"
 )
 
 // IGroupClient interface defines functions related to Group.

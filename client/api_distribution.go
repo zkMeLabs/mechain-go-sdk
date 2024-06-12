@@ -4,9 +4,9 @@ import (
 	"context"
 
 	"cosmossdk.io/math"
-	gnfdsdktypes "github.com/bnb-chain/greenfield/sdk/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	distrtypes "github.com/cosmos/cosmos-sdk/x/distribution/types"
+	gnfdsdktypes "github.com/evmos/evmos/v12/sdk/types"
 )
 
 type IDistributionClient interface {

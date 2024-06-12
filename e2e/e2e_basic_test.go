@@ -10,7 +10,7 @@ import (
 	"cosmossdk.io/math"
 	"github.com/bnb-chain/greenfield-go-sdk/e2e/basesuite"
 	"github.com/bnb-chain/greenfield-go-sdk/types"
-	types2 "github.com/bnb-chain/greenfield/sdk/types"
+	types2 "github.com/evmos/evmos/v12/sdk/types"
 )
 
 type BasicTestSuite struct {

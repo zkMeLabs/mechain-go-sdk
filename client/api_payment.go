@@ -11,9 +11,9 @@ import (
 	"strings"
 
 	"cosmossdk.io/math"
-	gnfdSdkTypes "github.com/bnb-chain/greenfield/sdk/types"
-	paymentTypes "github.com/bnb-chain/greenfield/x/payment/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
+	gnfdSdkTypes "github.com/evmos/evmos/v12/sdk/types"
+	paymentTypes "github.com/evmos/evmos/v12/x/payment/types"
 	"github.com/rs/zerolog/log"
 
 	"github.com/bnb-chain/greenfield-go-sdk/pkg/utils"

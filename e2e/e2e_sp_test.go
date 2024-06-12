@@ -8,11 +8,11 @@ import (
 	"cosmossdk.io/math"
 	"github.com/bnb-chain/greenfield-go-sdk/e2e/basesuite"
 	"github.com/bnb-chain/greenfield-go-sdk/types"
-	types2 "github.com/bnb-chain/greenfield/sdk/types"
-	spTypes "github.com/bnb-chain/greenfield/x/sp/types"
-	types3 "github.com/bnb-chain/greenfield/x/sp/types"
 	"github.com/cometbft/cometbft/crypto/tmhash"
 	govTypesV1 "github.com/cosmos/cosmos-sdk/x/gov/types/v1"
+	types2 "github.com/evmos/evmos/v12/sdk/types"
+	spTypes "github.com/evmos/evmos/v12/x/sp/types"
+	types3 "github.com/evmos/evmos/v12/x/sp/types"
 	"github.com/stretchr/testify/suite"
 )
 

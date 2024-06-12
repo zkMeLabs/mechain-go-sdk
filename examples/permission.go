@@ -7,8 +7,8 @@ import (
 	"github.com/bnb-chain/greenfield-go-sdk/client"
 	"github.com/bnb-chain/greenfield-go-sdk/pkg/utils"
 	"github.com/bnb-chain/greenfield-go-sdk/types"
-	permTypes "github.com/bnb-chain/greenfield/x/permission/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
+	permTypes "github.com/evmos/evmos/v12/x/permission/types"
 )
 
 // it is the example of basic permission SDKs usage

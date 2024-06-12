@@ -3,7 +3,7 @@ package client
 import (
 	"context"
 
-	"github.com/bnb-chain/greenfield/x/virtualgroup/types"
+	"github.com/evmos/evmos/v12/x/virtualgroup/types"
 )
 
 // IVirtualGroupClient interface defines basic functions related to Virtual Group.
@@ -69,7 +69,7 @@ func (c *Client) QuerySpAvailableGlobalVirtualGroupFamilies(ctx context.Context,
 // - ret2: Return error when the request failed, otherwise return nil.
 func (c *Client) QuerySpOptimalGlobalVirtualGroupFamily(ctx context.Context, spID uint32, strategy types.PickVGFStrategy) (uint32, error) {
 	queryResponse, err := c.chainClient.QuerySpOptimalGlobalVirtualGroupFamily(ctx, &types.QuerySpOptimalGlobalVirtualGroupFamilyRequest{
-		SpId: spID,
+		SpId:            spID,
 	})
 	if err != nil {
 		return 0, err

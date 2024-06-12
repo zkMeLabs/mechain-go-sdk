@@ -7,10 +7,10 @@ import (
 
 	"cosmossdk.io/math"
 	"github.com/bnb-chain/greenfield-go-sdk/types"
-	gnfdSdkTypes "github.com/bnb-chain/greenfield/sdk/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	govTypes "github.com/cosmos/cosmos-sdk/x/gov/types"
 	govTypesV1 "github.com/cosmos/cosmos-sdk/x/gov/types/v1"
+	gnfdSdkTypes "github.com/evmos/evmos/v12/sdk/types"
 )
 
 type IProposalClient interface {

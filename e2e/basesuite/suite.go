@@ -8,7 +8,7 @@ import (
 	"path/filepath"
 	"time"
 
-	storageTypes "github.com/bnb-chain/greenfield/x/storage/types"
+	storageTypes "github.com/evmos/evmos/v12/x/storage/types"
 
 	"github.com/bnb-chain/greenfield-go-sdk/client"
 	"github.com/bnb-chain/greenfield-go-sdk/types"
@@ -17,7 +17,7 @@ import (
 
 var (
 	Endpoint = "http://localhost:26750"
-	ChainID  = "greenfield_9000-121"
+	ChainID  = "mechain_1000000-121"
 )
 
 func ParseMnemonicFromFile(fileName string) string {
@@ -54,11 +54,11 @@ type BaseSuite struct {
 
 // ParseValidatorMnemonic read the validator mnemonic from file
 func ParseValidatorMnemonic(i int) string {
-	return ParseMnemonicFromFile(fmt.Sprintf("../../greenfield/deployment/localup/.local/validator%d/info", i))
+	return ParseMnemonicFromFile(fmt.Sprintf("../../mechain_ubuntu/deployment/localup/.local/validator%d/info", i))
 }
 
 func (s *BaseSuite) NewChallengeClient() {
-	mnemonic := ParseMnemonicFromFile(fmt.Sprintf("../../greenfield/deployment/localup/.local/challenger%d/challenger_info", 0))
+	mnemonic := ParseMnemonicFromFile(fmt.Sprintf("../../mechain_ubuntu/deployment/localup/.local/challenger%d/challenger_info", 0))
 	challengeAcc, err := types.NewAccountFromMnemonic("challenge_account", mnemonic)
 	s.Require().NoError(err)
 	s.ChallengeClient, err = client.New(ChainID, Endpoint, client.Option{

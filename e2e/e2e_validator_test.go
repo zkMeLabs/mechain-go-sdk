@@ -12,11 +12,11 @@ import (
 	"cosmossdk.io/math"
 	"github.com/bnb-chain/greenfield-go-sdk/e2e/basesuite"
 	"github.com/bnb-chain/greenfield-go-sdk/types"
-	gnfdsdktypes "github.com/bnb-chain/greenfield/sdk/types"
 	"github.com/cosmos/cosmos-sdk/crypto/keys/ed25519"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	govTypesV1 "github.com/cosmos/cosmos-sdk/x/gov/types/v1"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
+	gnfdsdktypes "github.com/evmos/evmos/v12/sdk/types"
 	"github.com/stretchr/testify/suite"
 )
 
