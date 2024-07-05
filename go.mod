@@ -27,6 +27,7 @@ require (
 	github.com/99designs/go-keychain v0.0.0-20191008050251-8e49817e8af4 // indirect
 	github.com/99designs/keyring v1.2.1 // indirect
 	github.com/ChainSafe/go-schnorrkel v0.0.0-20200405005733-88cbf1b4c40d // indirect
+	github.com/StackExchange/wmi v1.2.1 // indirect
 	github.com/armon/go-metrics v0.4.1 // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
 	github.com/bgentry/speakeasy v0.1.1-0.20220910012023-760eaf8b6816 // indirect
@@ -46,6 +47,7 @@ require (
 	github.com/cpuguy83/go-md2man/v2 v2.0.2 // indirect
 	github.com/danieljoos/wincred v1.1.2 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
+	github.com/deckarep/golang-set v1.8.0 // indirect
 	github.com/decred/dcrd/dcrec/secp256k1/v4 v4.2.0 // indirect
 	github.com/dgraph-io/badger/v2 v2.2007.4 // indirect
 	github.com/dgraph-io/ristretto v0.1.1 // indirect
@@ -57,6 +59,8 @@ require (
 	github.com/go-kit/kit v0.12.0 // indirect
 	github.com/go-kit/log v0.2.1 // indirect
 	github.com/go-logfmt/logfmt v0.6.0 // indirect
+	github.com/go-ole/go-ole v1.2.6 // indirect
+	github.com/go-stack/stack v1.8.1 // indirect
 	github.com/godbus/dbus v0.0.0-20190726142602-4481cbc300e2 // indirect
 	github.com/gogo/protobuf v1.3.3 // indirect
 	github.com/golang/glog v1.1.2 // indirect
@@ -105,6 +109,7 @@ require (
 	github.com/rcrowley/go-metrics v0.0.0-20201227073835-cf1acfcdf475 // indirect
 	github.com/russross/blackfriday/v2 v2.1.0 // indirect
 	github.com/sasha-s/go-deadlock v0.3.1 // indirect
+	github.com/shirou/gopsutil v3.21.4-0.20210419000835-c7a38de76ee5+incompatible // indirect
 	github.com/sirupsen/logrus v1.9.3 // indirect
 	github.com/spf13/afero v1.9.5 // indirect
 	github.com/spf13/cast v1.5.1 // indirect
@@ -122,6 +127,8 @@ require (
 	github.com/tidwall/match v1.1.1 // indirect
 	github.com/tidwall/pretty v1.2.0 // indirect
 	github.com/tidwall/sjson v1.2.5 // indirect
+	github.com/tklauser/go-sysconf v0.3.11 // indirect
+	github.com/tklauser/numcpus v0.6.0 // indirect
 	github.com/urfave/cli/v2 v2.25.7 // indirect
 	github.com/wealdtech/go-bytesutil v1.1.1 // indirect
 	github.com/wealdtech/go-eth2-types/v2 v2.5.2 // indirect
@@ -140,6 +147,7 @@ require (
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20231016165738-49dd2c1f3d0b // indirect
 	google.golang.org/protobuf v1.33.0 // indirect
 	gopkg.in/ini.v1 v1.67.0 // indirect
+	gopkg.in/natefinch/npipe.v2 v2.0.0-20160621034901-c1b8fa8bdcce // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	pgregory.net/rapid v0.5.5 // indirect
@@ -147,21 +155,21 @@ require (
 )
 
 replace (
-	cosmossdk.io/api => github.com/zkMeLabs/mechain-cosmos-sdk/api v0.0.0-20240606021439-ba398d2ee6d5
-	cosmossdk.io/math => github.com/zkMeLabs/mechain-cosmos-sdk/math v0.0.0-20240606021439-ba398d2ee6d5
-	cosmossdk.io/simapp => github.com/zkMeLabs/mechain-cosmos-sdk/simapp v0.0.0-20240606021439-ba398d2ee6d5
-	github.com/bnb-chain/greenfield-common/go => github.com/zkMeLabs/mechain-common/go v0.0.0-20240606031857-995facf43b48
+	cosmossdk.io/api => github.com/zkMeLabs/mechain-cosmos-sdk/api v0.0.0-20240702092947-e2e82fa7b665
+	cosmossdk.io/math => github.com/zkMeLabs/mechain-cosmos-sdk/math v0.0.0-20240702092947-e2e82fa7b665
+	cosmossdk.io/simapp => github.com/zkMeLabs/mechain-cosmos-sdk/simapp v0.0.0-20240702092947-e2e82fa7b665
+	github.com/bnb-chain/greenfield-common/go => github.com/zkMeLabs/mechain-common/go v0.0.0-20240705020011-7688018b5ad9
 	github.com/bnb-chain/greenfield-go-sdk => ./
 	github.com/btcsuite/btcd => github.com/btcsuite/btcd v0.23.0
 	github.com/cometbft/cometbft => github.com/bnb-chain/greenfield-cometbft v1.3.0
 	github.com/cometbft/cometbft-db => github.com/bnb-chain/greenfield-cometbft-db v0.8.1-alpha.1
 	github.com/confio/ics23/go => github.com/cosmos/cosmos-sdk/ics23/go v0.8.0
 	github.com/consensys/gnark-crypto => github.com/consensys/gnark-crypto v0.7.0
-	github.com/cosmos/cosmos-sdk => github.com/zkMeLabs/mechain-cosmos-sdk v0.0.0-20240606021439-ba398d2ee6d5
+	github.com/cosmos/cosmos-sdk => github.com/zkMeLabs/mechain-cosmos-sdk v0.0.0-20240702092947-e2e82fa7b665
 	github.com/cosmos/iavl => github.com/bnb-chain/greenfield-iavl v0.20.1
-	github.com/cosmos/ibc-go/v7 => github.com/zkMeLabs/mechain-ibc-go v0.0.0-20240606022514-cf557d479ee7
+	github.com/cosmos/ibc-go/v7 => github.com/zkMeLabs/mechain-ibc-go v0.0.0-20240704102753-35ebf276defa
 	github.com/ethereum/go-ethereum => github.com/evmos/go-ethereum v1.10.26
-	github.com/evmos/evmos/v12 => github.com/zkMeLabs/mechain/v12 v12.0.0-20240606030726-5b45216d5aff
+	github.com/evmos/evmos/v12 => github.com/zkMeLabs/mechain/v12 v12.0.0-20240704105125-582de953f5bf
 	github.com/gogo/protobuf => github.com/regen-network/protobuf v1.3.3-alpha.regen.1
 	github.com/syndtr/goleveldb => github.com/syndtr/goleveldb v1.0.1-0.20210819022825-2ae1ddf74ef7
 	github.com/wercker/journalhook => github.com/wercker/journalhook v0.0.0-20230927020745-64542ffa4117

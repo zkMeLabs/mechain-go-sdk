@@ -45,6 +45,7 @@ type IClient interface {
 	IProposalClient
 	IValidatorClient
 	IDistributionClient
+	ICrossChainClient
 	IFeeGrantClient
 	IVirtualGroupClient
 	IAuthClient

@@ -13,19 +13,21 @@ import (
 // The config information is consistent with the testnet of greenfield
 // You need to set the privateKey, bucketName, objectName and groupName to make the basic examples work well
 const (
-	rpcAddr = "https://gnfd-testnet-fullnode-tendermint-us.bnbchain.org:443"
-	chainId = "mechain_5600-1"
-	// crossChainDestBsChainId = 97
-	privateKey  = "xx"
-	objectSize  = 1000
-	groupMember = "0x.." // used for group examples
-	principal   = "0x.." // used for permission examples
-	bucketName  = "test-bucket"
-	objectName  = "test-object"
-	groupName   = "test-group"
-	toAddress   = "0x.." // used for cross chain transfer
-	httpsAddr   = ""
-	paymentAddr = ""
+	rpcAddr                 = "https://gnfd-testnet-fullnode-tendermint-us.bnbchain.org:443"
+	chainId                 = "mechain_1000000-121"
+	crossChainDestBsChainId = 97
+	privateKey              = "xx"
+	objectSize              = 1000
+	groupMember             = "0x.." // used for group examples
+	principal               = "0x.." // used for permission examples
+	bucketName              = "test-bucket"
+	objectName              = "test-object"
+	groupName               = "test-group"
+	toAddress               = "0x.." // used for cross chain transfer
+	httpsAddr               = ""
+	paymentAddr             = ""
+	bscRpcAddr              = "https://data-seed-prebsc-1-s1.binance.org:8545/"
+	bscPrivateKey           = "a6f2041aeca9a09159c937b77316c9c7e2c0f1c5b7241832f84bf1d37eb49661"
 )
 
 func handleErr(err error, funcName string) {
