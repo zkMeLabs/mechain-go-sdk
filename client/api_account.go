@@ -10,6 +10,7 @@ import (
 	authTypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 	bankTypes "github.com/cosmos/cosmos-sdk/x/bank/types"
 	gnfdSdkTypes "github.com/evmos/evmos/v12/sdk/types"
+	evmostypes "github.com/evmos/evmos/v12/types"
 	paymentTypes "github.com/evmos/evmos/v12/x/payment/types"
 )
 
@@ -86,7 +87,7 @@ func (c *Client) GetAccount(ctx context.Context, address string) (authTypes.Acco
 	}
 
 	// Unmarshal the raw account data from the response into a BaseAccount object.
-	baseAccount := authTypes.BaseAccount{}
+	baseAccount := evmostypes.EthAccount{}
 	err = c.chainClient.GetCodec().Unmarshal(response.Account.GetValue(), &baseAccount)
 	if err != nil {
 		// Return an error if there was an issue unmarshalling the account data.
