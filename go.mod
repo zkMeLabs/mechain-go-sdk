@@ -28,6 +28,7 @@ require (
 	github.com/99designs/keyring v1.2.1 // indirect
 	github.com/ChainSafe/go-schnorrkel v0.0.0-20200405005733-88cbf1b4c40d // indirect
 	github.com/StackExchange/wmi v1.2.1 // indirect
+	github.com/VictoriaMetrics/fastcache v1.6.0 // indirect
 	github.com/armon/go-metrics v0.4.1 // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
 	github.com/bgentry/speakeasy v0.1.1-0.20220910012023-760eaf8b6816 // indirect
@@ -43,6 +44,8 @@ require (
 	github.com/cosmos/cosmos-proto v1.0.0-beta.3 // indirect
 	github.com/cosmos/go-bip39 v1.0.0 // indirect
 	github.com/cosmos/iavl v0.20.0 // indirect
+	github.com/cosmos/ibc-go/v7 v7.2.0 // indirect
+	github.com/cosmos/ics23/go v0.10.0 // indirect
 	github.com/cosmos/ledger-cosmos-go v0.13.0 // indirect
 	github.com/cpuguy83/go-md2man/v2 v2.0.2 // indirect
 	github.com/danieljoos/wincred v1.1.2 // indirect
@@ -80,6 +83,8 @@ require (
 	github.com/hashicorp/hcl v1.0.0 // indirect
 	github.com/hdevalence/ed25519consensus v0.1.0 // indirect
 	github.com/herumi/bls-eth-go-binary v0.0.0-20210917013441-d37c07cfda4e // indirect
+	github.com/holiman/bloomfilter/v2 v2.0.3 // indirect
+	github.com/holiman/uint256 v1.2.1 // indirect
 	github.com/huandu/skiplist v1.2.0 // indirect
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
 	github.com/jmhodges/levigo v1.0.0 // indirect
@@ -91,12 +96,14 @@ require (
 	github.com/magiconair/properties v1.8.7 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.19 // indirect
+	github.com/mattn/go-runewidth v0.0.13 // indirect
 	github.com/matttproud/golang_protobuf_extensions v1.0.4 // indirect
 	github.com/mimoo/StrobeGo v0.0.0-20210601165009-122bf33a46e0 // indirect
 	github.com/minio/sha256-simd v1.0.0 // indirect
 	github.com/mitchellh/mapstructure v1.5.0 // indirect
 	github.com/mohae/deepcopy v0.0.0-20170929034955-c48cc78d4826 // indirect
 	github.com/mtibben/percent v0.2.1 // indirect
+	github.com/olekukonko/tablewriter v0.0.5 // indirect
 	github.com/pelletier/go-toml/v2 v2.0.9 // indirect
 	github.com/petermattis/goid v0.0.0-20230518223814-80aa455d8761 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
@@ -105,8 +112,10 @@ require (
 	github.com/prometheus/client_model v0.5.0 // indirect
 	github.com/prometheus/common v0.44.0 // indirect
 	github.com/prometheus/procfs v0.12.0 // indirect
+	github.com/prometheus/tsdb v0.10.0 // indirect
 	github.com/prysmaticlabs/eth2-types v0.0.0-20210303084904-c9735a06829d // indirect
 	github.com/rcrowley/go-metrics v0.0.0-20201227073835-cf1acfcdf475 // indirect
+	github.com/rivo/uniseg v0.2.0 // indirect
 	github.com/russross/blackfriday/v2 v2.1.0 // indirect
 	github.com/sasha-s/go-deadlock v0.3.1 // indirect
 	github.com/shirou/gopsutil v3.21.4-0.20210419000835-c7a38de76ee5+incompatible // indirect
@@ -155,21 +164,21 @@ require (
 )
 
 replace (
-	cosmossdk.io/api => github.com/zkMeLabs/mechain-cosmos-sdk/api v0.0.0-20240702092947-e2e82fa7b665
-	cosmossdk.io/math => github.com/zkMeLabs/mechain-cosmos-sdk/math v0.0.0-20240702092947-e2e82fa7b665
-	cosmossdk.io/simapp => github.com/zkMeLabs/mechain-cosmos-sdk/simapp v0.0.0-20240702092947-e2e82fa7b665
-	github.com/bnb-chain/greenfield-common/go => github.com/zkMeLabs/mechain-common/go v0.0.0-20240705020011-7688018b5ad9
+	cosmossdk.io/api => github.com/zkMeLabs/mechain-cosmos-sdk/api v0.0.0-20240722072054-a692e90dceb7
+	cosmossdk.io/math => github.com/zkMeLabs/mechain-cosmos-sdk/math v0.0.0-20240722072054-a692e90dceb7
+	cosmossdk.io/simapp => github.com/zkMeLabs/mechain-cosmos-sdk/simapp v0.0.0-20240722072054-a692e90dceb7
+	github.com/bnb-chain/greenfield-common/go => github.com/zkMeLabs/mechain-common/go v0.0.0-20240722095111-376b7eb1879d
 	github.com/bnb-chain/greenfield-go-sdk => ./
 	github.com/btcsuite/btcd => github.com/btcsuite/btcd v0.23.0
 	github.com/cometbft/cometbft => github.com/bnb-chain/greenfield-cometbft v1.3.0
 	github.com/cometbft/cometbft-db => github.com/bnb-chain/greenfield-cometbft-db v0.8.1-alpha.1
 	github.com/confio/ics23/go => github.com/cosmos/cosmos-sdk/ics23/go v0.8.0
 	github.com/consensys/gnark-crypto => github.com/consensys/gnark-crypto v0.7.0
-	github.com/cosmos/cosmos-sdk => github.com/zkMeLabs/mechain-cosmos-sdk v0.0.0-20240702092947-e2e82fa7b665
+	github.com/cosmos/cosmos-sdk => github.com/zkMeLabs/mechain-cosmos-sdk v0.0.0-20240722072054-a692e90dceb7
 	github.com/cosmos/iavl => github.com/bnb-chain/greenfield-iavl v0.20.1
-	github.com/cosmos/ibc-go/v7 => github.com/zkMeLabs/mechain-ibc-go v0.0.0-20240704102753-35ebf276defa
-	github.com/ethereum/go-ethereum => github.com/evmos/go-ethereum v1.10.26
-	github.com/evmos/evmos/v12 => github.com/zkMeLabs/mechain/v12 v12.0.0-20240704105125-582de953f5bf
+	github.com/cosmos/ibc-go/v7 => github.com/zkMeLabs/mechain-ibc-go v0.0.0-20240722073438-a0d1a6577104
+	github.com/ethereum/go-ethereum => github.com/evmos/go-ethereum v1.10.26-evmos-rc2
+	github.com/evmos/evmos/v12 => github.com/zkMeLabs/mechain/v12 v12.0.0-20240722093541-f933fc682876
 	github.com/gogo/protobuf => github.com/regen-network/protobuf v1.3.3-alpha.regen.1
 	github.com/syndtr/goleveldb => github.com/syndtr/goleveldb v1.0.1-0.20210819022825-2ae1ddf74ef7
 	github.com/wercker/journalhook => github.com/wercker/journalhook v0.0.0-20230927020745-64542ffa4117
