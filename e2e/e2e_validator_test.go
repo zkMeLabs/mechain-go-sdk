@@ -6,8 +6,9 @@ import (
 	"testing"
 	"time"
 
+	"github.com/0xPolygon/polygon-edge/bls"
 	"github.com/cometbft/cometbft/crypto/tmhash"
-	"github.com/prysmaticlabs/prysm/crypto/bls/blst"
+	"github.com/cometbft/cometbft/votepool"
 
 	"cosmossdk.io/math"
 	"github.com/bnb-chain/greenfield-go-sdk/e2e/basesuite"
@@ -61,9 +62,10 @@ func (s *ValidatorTestSuite) Test_Validator_Operations() {
 		MaxChangeRate: sdk.OneDec(),
 	}
 
-	blsSecretKey, _ := blst.RandKey()
+	blsSecretKey, _ := bls.GenerateBlsKey()
 	blsPubKey := blsSecretKey.PublicKey().Marshal()
-	blsProofBz := blsSecretKey.Sign(tmhash.Sum(blsPubKey)).Marshal()
+	blsProofBzBts, _ := blsSecretKey.Sign(tmhash.Sum(blsPubKey), votepool.DST)
+	blsProofBz, _ := blsProofBzBts.Marshal()
 
 	proposalID, txHash, err := s.Client.CreateValidator(s.ClientContext,
 		description,

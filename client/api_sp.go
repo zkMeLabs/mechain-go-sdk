@@ -7,8 +7,8 @@ import (
 	"strings"
 	"time"
 
+	"github.com/0xPolygon/polygon-edge/bls"
 	"github.com/cosmos/cosmos-sdk/types/query"
-	"github.com/prysmaticlabs/prysm/crypto/bls"
 
 	"cosmossdk.io/math"
 	"github.com/bnb-chain/greenfield-go-sdk/pkg/utils"
@@ -225,7 +225,7 @@ func (c *Client) CreateStorageProvider(ctx context.Context, fundingAddr, sealAdd
 	if err != nil {
 		return 0, "", err
 	}
-	_, err = bls.PublicKeyFromBytes(blsPubKeyBz)
+	_, err = bls.UnmarshalPublicKey(blsPubKeyBz)
 	if err != nil {
 		return 0, "", err
 	}

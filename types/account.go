@@ -3,7 +3,7 @@ package types
 import (
 	"encoding/hex"
 
-	"github.com/prysmaticlabs/prysm/crypto/bls"
+	"github.com/0xPolygon/polygon-edge/bls"
 
 	"cosmossdk.io/math"
 
@@ -95,15 +95,16 @@ func NewAccount(name string) (*Account, string, error) {
 //
 // -ret3: Error message.
 func NewBlsAccount(name string) (*Account, string, error) {
-	blsPrivKey, _ := bls.RandKey()
-	km, err := keys.NewBlsPrivateKeyManager(hex.EncodeToString(blsPrivKey.Marshal()))
+	blsPrivKey, _ := bls.GenerateBlsKey()
+	blsPrivKeyBts, _ := blsPrivKey.Marshal()
+	km, err := keys.NewBlsPrivateKeyManager(hex.EncodeToString(blsPrivKeyBts))
 	if err != nil {
 		return nil, "", err
 	}
 	return &Account{
 		name: name,
 		km:   km,
-	}, hex.EncodeToString(blsPrivKey.Marshal()), nil
+	}, hex.EncodeToString(blsPrivKeyBts), nil
 }
 
 // GetKeyManager - Get the key manager of the account.
