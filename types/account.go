@@ -12,7 +12,7 @@ import (
 	"github.com/evmos/evmos/v12/sdk/keys"
 )
 
-// Account indicates the user's identity information used for interaction with Greenfield.
+// Account indicates the user's identity information used for interaction with Mechain.
 type Account struct {
 	name string
 	km   keys.KeyManager

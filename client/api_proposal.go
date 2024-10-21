@@ -6,11 +6,11 @@ import (
 	"time"
 
 	"cosmossdk.io/math"
-	"github.com/bnb-chain/greenfield-go-sdk/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	govTypes "github.com/cosmos/cosmos-sdk/x/gov/types"
 	govTypesV1 "github.com/cosmos/cosmos-sdk/x/gov/types/v1"
 	gnfdSdkTypes "github.com/evmos/evmos/v12/sdk/types"
+	"github.com/zkMeLabs/mechain-go-sdk/types"
 )
 
 type IProposalClient interface {
@@ -19,13 +19,13 @@ type IProposalClient interface {
 	GetProposal(ctx context.Context, proposalID uint64) (*govTypesV1.Proposal, error)
 }
 
-// SubmitProposal - Submit a proposal to Greenfield.
+// SubmitProposal - Submit a proposal to Mechain.
 //
 // - ctx: Context variables for the current API call.
 //
 // - msgs: The messages to be executed when the proposal is passed.
 //
-// - depositAmount: The amount of BNB to deposit to the proposal.
+// - depositAmount: The amount of azkme to deposit to the proposal.
 //
 // - title: The title of the proposal.
 //

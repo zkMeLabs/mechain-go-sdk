@@ -16,11 +16,11 @@ import (
 	paymentTypes "github.com/evmos/evmos/v12/x/payment/types"
 	"github.com/rs/zerolog/log"
 
-	"github.com/bnb-chain/greenfield-go-sdk/pkg/utils"
-	"github.com/bnb-chain/greenfield-go-sdk/types"
+	"github.com/zkMeLabs/mechain-go-sdk/pkg/utils"
+	"github.com/zkMeLabs/mechain-go-sdk/types"
 )
 
-// IPaymentClient - Client APIs for operating and querying Greenfield payment accounts and stream records.
+// IPaymentClient - Client APIs for operating and querying Mechain payment accounts and stream records.
 type IPaymentClient interface {
 	GetStreamRecord(ctx context.Context, streamAddress string) (*paymentTypes.StreamRecord, error)
 	Deposit(ctx context.Context, toAddress string, amount math.Int, txOption gnfdSdkTypes.TxOption) (string, error)
@@ -50,7 +50,7 @@ func (c *Client) GetStreamRecord(ctx context.Context, streamAddress string) (*pa
 	return &pa.StreamRecord, nil
 }
 
-// Deposit - Deposit BNB to a payment account.
+// Deposit - Deposit azkme to a payment account.
 //
 // - ctx: Context variables for the current API call.
 //
@@ -60,7 +60,7 @@ func (c *Client) GetStreamRecord(ctx context.Context, streamAddress string) (*pa
 //
 // - txOption: The options for sending the tx.
 //
-// - ret1: The response of Greenfield transaction.
+// - ret1: The response of Mechain transaction.
 //
 // - ret2: Return error when deposit tx failed, otherwise return nil.
 func (c *Client) Deposit(ctx context.Context, toAddress string, amount math.Int, txOption gnfdSdkTypes.TxOption) (string, error) {
@@ -80,11 +80,11 @@ func (c *Client) Deposit(ctx context.Context, toAddress string, amount math.Int,
 	return tx.TxResponse.TxHash, nil
 }
 
-// Withdraw - Withdraws BNB from a payment account.
+// Withdraw - Withdraws azkme from a payment account.
 //
 // Withdrawal will trigger settlement, i.e., updating static balance and buffer balance.
 // If the withdrawal amount is greater than the static balance after settlement it will fail.
-// If the withdrawal amount is equal to or greater than 100BNB, it will be timelock-ed for 1 day duration.
+// If the withdrawal amount is equal to or greater than 100azkme, it will be timelock-ed for 1 day duration.
 // And after the duration, a message without `from` field should be sent to get the funds.
 //
 // - ctx: Context variables for the current API call.
@@ -95,7 +95,7 @@ func (c *Client) Deposit(ctx context.Context, toAddress string, amount math.Int,
 //
 // - txOption: The options for sending the tx.
 //
-// - ret1: The response of Greenfield transaction.
+// - ret1: The response of Mechain transaction.
 //
 // - ret2: Return error when withdrawal tx failed, otherwise return nil.
 func (c *Client) Withdraw(ctx context.Context, fromAddress string, amount math.Int, txOption gnfdSdkTypes.TxOption) (string, error) {
@@ -125,7 +125,7 @@ func (c *Client) Withdraw(ctx context.Context, fromAddress string, amount math.I
 //
 // - txOption: The options for sending the tx.
 //
-// - ret1: The response of Greenfield transaction.
+// - ret1: The response of Mechain transaction.
 //
 // - ret2: Return error when disable refund tx failed, otherwise return nil.
 func (c *Client) DisableRefund(ctx context.Context, paymentAddress string, txOption gnfdSdkTypes.TxOption) (string, error) {

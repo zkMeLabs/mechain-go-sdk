@@ -6,14 +6,14 @@ import (
 	"time"
 
 	"cosmossdk.io/math"
-	"github.com/bnb-chain/greenfield-go-sdk/e2e/basesuite"
-	"github.com/bnb-chain/greenfield-go-sdk/types"
 	"github.com/cometbft/cometbft/crypto/tmhash"
 	govTypesV1 "github.com/cosmos/cosmos-sdk/x/gov/types/v1"
 	types2 "github.com/evmos/evmos/v12/sdk/types"
 	spTypes "github.com/evmos/evmos/v12/x/sp/types"
 	types3 "github.com/evmos/evmos/v12/x/sp/types"
 	"github.com/stretchr/testify/suite"
+	"github.com/zkMeLabs/mechain-go-sdk/e2e/basesuite"
+	"github.com/zkMeLabs/mechain-go-sdk/types"
 )
 
 type SPTestSuite struct {
@@ -56,7 +56,7 @@ func (s *SPTestSuite) SetupSuite() {
 }
 
 func (s *SPTestSuite) Test_CreateStorageProvider() {
-	txHash, err := s.Client.Transfer(s.ClientContext, s.FundingAcc.GetAddress().String(), math.NewIntWithDecimal(10001, types2.DecimalBNB), types2.TxOption{})
+	txHash, err := s.Client.Transfer(s.ClientContext, s.FundingAcc.GetAddress().String(), math.NewIntWithDecimal(10001, types2.DecimalZKME), types2.TxOption{})
 	s.Require().NoError(err)
 	_, err = s.Client.WaitForTx(s.ClientContext, txHash)
 	s.Require().NoError(err)
@@ -64,7 +64,7 @@ func (s *SPTestSuite) Test_CreateStorageProvider() {
 	s.Require().NoError(err)
 	s.T().Logf("funding validatorAccount balance: %s", fundingBalance.String())
 
-	txHash, err = s.Client.Transfer(s.ClientContext, s.SealAcc.GetAddress().String(), math.NewIntWithDecimal(1, types2.DecimalBNB), types2.TxOption{})
+	txHash, err = s.Client.Transfer(s.ClientContext, s.SealAcc.GetAddress().String(), math.NewIntWithDecimal(1, types2.DecimalZKME), types2.TxOption{})
 	s.Require().NoError(err)
 	_, err = s.Client.WaitForTx(s.ClientContext, txHash)
 	s.Require().NoError(err)
@@ -72,7 +72,7 @@ func (s *SPTestSuite) Test_CreateStorageProvider() {
 	s.Require().NoError(err)
 	s.T().Logf("seal validatorAccount balance: %s", sealBalance.String())
 
-	txHash, err = s.Client.Transfer(s.ClientContext, s.OperatorAcc.GetAddress().String(), math.NewIntWithDecimal(1000, types2.DecimalBNB), types2.TxOption{})
+	txHash, err = s.Client.Transfer(s.ClientContext, s.OperatorAcc.GetAddress().String(), math.NewIntWithDecimal(1000, types2.DecimalZKME), types2.TxOption{})
 	s.Require().NoError(err)
 	_, err = s.Client.WaitForTx(s.ClientContext, txHash)
 	s.Require().NoError(err)
@@ -81,7 +81,7 @@ func (s *SPTestSuite) Test_CreateStorageProvider() {
 	s.T().Logf("operator validatorAccount balance: %s", operatorBalance.String())
 
 	s.Client.SetDefaultAccount(s.FundingAcc)
-	txHash, err = s.Client.GrantDepositForStorageProvider(s.ClientContext, s.OperatorAcc.GetAddress().String(), math.NewIntWithDecimal(10000, types2.DecimalBNB), types.GrantDepositForStorageProviderOptions{})
+	txHash, err = s.Client.GrantDepositForStorageProvider(s.ClientContext, s.OperatorAcc.GetAddress().String(), math.NewIntWithDecimal(10000, types2.DecimalZKME), types.GrantDepositForStorageProviderOptions{})
 	s.Require().NoError(err)
 	_, err = s.Client.WaitForTx(s.ClientContext, txHash)
 	s.Require().NoError(err)
@@ -92,8 +92,8 @@ func (s *SPTestSuite) Test_CreateStorageProvider() {
 	s.Require().NoError(err)
 	proposalID, txHash, err := s.Client.CreateStorageProvider(s.ClientContext, s.FundingAcc.GetAddress().String(), s.SealAcc.GetAddress().String(), s.ApprovalAcc.GetAddress().String(), s.GcAcc.GetAddress().String(), s.MaintenanceAcc.GetAddress().String(),
 		hex.EncodeToString(s.BlsAcc.GetKeyManager().PubKey().Bytes()), hex.EncodeToString(blsProofBz),
-		"https://sp0.greenfield.io",
-		math.NewIntWithDecimal(10000, types2.DecimalBNB),
+		"https://sp0.mechain.io",
+		math.NewIntWithDecimal(10000, types2.DecimalZKME),
 		types3.Description{Moniker: "test"},
 		types.CreateStorageProviderOptions{ProposalMetaData: "create", ProposalTitle: "test", ProposalSummary: "test"})
 	s.Require().NoError(err)

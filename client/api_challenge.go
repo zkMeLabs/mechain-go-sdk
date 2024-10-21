@@ -18,11 +18,11 @@ import (
 	challengetypes "github.com/evmos/evmos/v12/x/challenge/types"
 	"github.com/rs/zerolog/log"
 
-	"github.com/bnb-chain/greenfield-go-sdk/pkg/utils"
-	types "github.com/bnb-chain/greenfield-go-sdk/types"
+	"github.com/zkMeLabs/mechain-go-sdk/pkg/utils"
+	types "github.com/zkMeLabs/mechain-go-sdk/types"
 )
 
-// IChallengeClient - Client APIs for operating and querying Greenfield challenges.
+// IChallengeClient - Client APIs for operating and querying Mechain challenges.
 type IChallengeClient interface {
 	GetChallengeInfo(ctx context.Context, objectID string, pieceIndex, redundancyIndex int, opts types.GetChallengeInfoOptions) (types.ChallengeResult, error)
 	SubmitChallenge(ctx context.Context, challengerAddress, spOperatorAddress, bucketName, objectName string, randomIndex bool, segmentIndex uint32, txOption gnfdsdktypes.TxOption) (*sdk.TxResponse, error)
@@ -228,7 +228,7 @@ func (c *Client) GetChallengeInfo(ctx context.Context, objectID string, pieceInd
 //
 // - txOption: The options for sending the tx.
 //
-// - ret1: The response of Greenfield transaction.
+// - ret1: The response of Mechain transaction.
 //
 // - ret2: Return error when submitting challenge tx failed, otherwise return nil.
 func (c *Client) SubmitChallenge(ctx context.Context, challengerAddress, spOperatorAddress, bucketName, objectName string, randomIndex bool, segmentIndex uint32, txOption gnfdsdktypes.TxOption) (*sdk.TxResponse, error) {
@@ -274,7 +274,7 @@ func (c *Client) SubmitChallenge(ctx context.Context, challengerAddress, spOpera
 //
 // - txOption: The options for sending the tx.
 //
-// - ret1: The response of Greenfield transaction.
+// - ret1: The response of Mechain transaction.
 //
 // - ret2: Return error when submitting attestation tx failed, otherwise return nil.
 func (c *Client) AttestChallenge(ctx context.Context, submitterAddress, challengerAddress, spOperatorAddress string, challengeId uint64, objectId math.Uint,
@@ -305,7 +305,7 @@ func (c *Client) AttestChallenge(ctx context.Context, submitterAddress, challeng
 
 // LatestAttestedChallenges - Query the latest attested challenges (including heartbeat challenges).
 //
-// Greenfield will not keep the results of all challenges, only the latest ones will be kept and old ones will be pruned.
+// Mechain will not keep the results of all challenges, only the latest ones will be kept and old ones will be pruned.
 //
 // - ctx: Context variables for the current API call.
 //
@@ -320,7 +320,7 @@ func (c *Client) LatestAttestedChallenges(ctx context.Context, req *challengetyp
 
 // InturnAttestationSubmitter - Query the in-turn validator to submit challenge attestation.
 //
-// Greenfield will only allow the in-turn validator to submit challenge attestations.
+// Mechain will only allow the in-turn validator to submit challenge attestations.
 //
 // - ctx: Context variables for the current API call.
 //
@@ -333,7 +333,7 @@ func (c *Client) InturnAttestationSubmitter(ctx context.Context, req *challenget
 	return c.chainClient.InturnAttestationSubmitter(ctx, req)
 }
 
-// ChallengeParams - Get challenge module's parameters of Greenfield blockchain.
+// ChallengeParams - Get challenge module's parameters of Mechain blockchain.
 //
 // - ctx: Context variables for the current API call.
 //

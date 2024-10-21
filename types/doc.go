@@ -1,5 +1,5 @@
 /*
-Package types provides type definition of the greenfield-go-sdk client
+Package types provides type definition of the mechain-go-sdk client
 */
 package types
 

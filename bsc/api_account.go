@@ -1,8 +1,8 @@
 package bsc
 
 import (
-	"github.com/bnb-chain/greenfield-go-sdk/bsctypes"
-	"github.com/bnb-chain/greenfield-go-sdk/types"
+	"github.com/zkMeLabs/mechain-go-sdk/bsctypes"
+	"github.com/zkMeLabs/mechain-go-sdk/types"
 )
 
 type IAccountClient interface {

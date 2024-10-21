@@ -28,9 +28,9 @@ func (c *Client) GrantBasicAllowance(ctx context.Context, granteeAddr string, fe
 	if err != nil {
 		return "", err
 	}
-	bnb := sdk.NewCoins(sdk.NewCoin(gnfdsdktypes.Denom, feeAllowanceAmount))
+	azkme := sdk.NewCoins(sdk.NewCoin(gnfdsdktypes.Denom, feeAllowanceAmount))
 	allowance := feegrant.BasicAllowance{
-		SpendLimit: bnb,
+		SpendLimit: azkme,
 		Expiration: expiration,
 	}
 	msg, err := feegrant.NewMsgGrantAllowance(&allowance, c.defaultAccount.GetAddress(), grantee)

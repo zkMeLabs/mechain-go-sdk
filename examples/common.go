@@ -7,14 +7,14 @@ import (
 	"log"
 	"time"
 
-	"github.com/bnb-chain/greenfield-go-sdk/client"
+	"github.com/zkMeLabs/mechain-go-sdk/client"
 )
 
-// The config information is consistent with the testnet of greenfield
+// The config information is consistent with the testnet of mechain
 // You need to set the privateKey, bucketName, objectName and groupName to make the basic examples work well
 const (
-	rpcAddr                 = "https://gnfd-testnet-fullnode-tendermint-us.bnbchain.org:443"
-	chainId                 = "mechain_1000000-121"
+	rpcAddr                 = "https://gnfd-testnet-fullnode-tendermint-us.mechain.org:443"
+	chainId                 = "mechain_5151-1"
 	crossChainDestBsChainId = 97
 	privateKey              = "xx"
 	objectSize              = 1000

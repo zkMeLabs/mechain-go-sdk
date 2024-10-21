@@ -8,9 +8,9 @@ import (
 	"github.com/stretchr/testify/suite"
 
 	"cosmossdk.io/math"
-	"github.com/bnb-chain/greenfield-go-sdk/e2e/basesuite"
-	"github.com/bnb-chain/greenfield-go-sdk/types"
 	types2 "github.com/evmos/evmos/v12/sdk/types"
+	"github.com/zkMeLabs/mechain-go-sdk/e2e/basesuite"
+	"github.com/zkMeLabs/mechain-go-sdk/types"
 )
 
 type BasicTestSuite struct {

@@ -24,11 +24,11 @@ import (
 	"github.com/rs/zerolog/log"
 	"golang.org/x/crypto/blake2b"
 
-	httplib "github.com/bnb-chain/greenfield-common/go/http"
-	"github.com/bnb-chain/greenfield-go-sdk/types"
+	httplib "github.com/zkMeLabs/mechain-common/go/http"
+	"github.com/zkMeLabs/mechain-go-sdk/types"
 )
 
-// IAuthClient - Client APIs for register Greenfield off chain auth keys and make signatures.
+// IAuthClient - Client APIs for register Mechain off chain auth keys and make signatures.
 type IAuthClient interface {
 	RegisterEDDSAPublicKey(spAddress string, spEndpoint string) (string, error)
 	GetNextNonce(spEndpoint string) (string, error)
@@ -112,7 +112,7 @@ func (c *Client) GetNextNonce(spEndpoint string) (string, error) {
 }
 
 const (
-	unsignedContentTemplate string = `%s wants you to sign in with your BNB Greenfield account:
+	unsignedContentTemplate string = `%s wants you to sign in with your Mechain account:
 %s
 
 Register your identity public key %s
@@ -125,7 +125,7 @@ Expiration Time: %s
 Resources:
 - SP %s (name: SP_001) with nonce: %s`
 
-	unsignedContentTemplateV2 string = `%s wants you to sign in with your BNB Greenfield account:
+	unsignedContentTemplateV2 string = `%s wants you to sign in with your Mechain account:
 %s
 
 Register your identity public key %s
@@ -140,7 +140,7 @@ Expiration Time: %s`
 // RegisterEDDSAPublicKey - Register EdDSA public key of this client for the given sp address and spEndpoint.
 //
 // To enable EdDSA authentication, you need to config OffChainAuthOption for the client.
-// The overall register process could be referred to https://docs.bnbchain.org/greenfield-docs/docs/guide/storage-provider/modules/authenticator#workflow.
+// The overall register process could be referred to https://zk.me/mechain-docs/docs/guide/storage-provider/modules/authenticator#workflow.
 //
 // The EdDSA registering process is typically used in a website, e.g. https://dcellar.io,
 // which obtains a user's signature via a wallet and then posts the user's EdDSA public key to a sp.
@@ -148,9 +148,9 @@ Expiration Time: %s`
 // Here we also provide an SDK method to implement this process, because sometimes you might want to test if a given SP provides correct EdDSA authentication or not.
 // It also helps if you want implement it on a non-browser environment.
 //
-// - spAddress: The sp operator address, to which this API will register client's EdDSA public key. It can be found via https://docs.bnbchain.org/greenfield-docs/docs/greenfield-api/storage-providers .
+// - spAddress: The sp operator address, to which this API will register client's EdDSA public key. It can be found via https://zk.me/mechain-docs/docs/mechain-api/storage-providers .
 //
-// - spEndpoint: The sp endpoint, to which this API will register client's EdDSA public key. It can be found via https://docs.bnbchain.org/greenfield-docs/docs/greenfield-api/storage-providers .
+// - spEndpoint: The sp endpoint, to which this API will register client's EdDSA public key. It can be found via https://zk.me/mechain-docs/docs/mechain-api/storage-providers .
 //
 // - ret1: The register result when invoking SP UpdateUserPublicKey API.
 //
@@ -192,7 +192,7 @@ func (c *Client) RegisterEDDSAPublicKey(spAddress string, spEndpoint string) (st
 // RegisterEDDSAPublicKeyV2 - Register EdDSA public key of this client for the given sp address and spEndpoint.
 //
 // To enable EdDSA authentication, you need to config OffChainAuthOptionV2 for the client.
-// The overall register process could be referred to https://docs.bnbchain.org/greenfield-docs/docs/guide/storage-provider/modules/authenticator#workflow.
+// The overall register process could be referred to https://zk.me/mechain-docs/docs/guide/storage-provider/modules/authenticator#workflow.
 //
 // The EdDSA registering process is typically used in a website, e.g. https://dcellar.io,
 // which obtains a user's signature via a wallet and then posts the user's EdDSA public key to a sp.
@@ -200,7 +200,7 @@ func (c *Client) RegisterEDDSAPublicKey(spAddress string, spEndpoint string) (st
 // Here we also provide an SDK method to implement this process, because sometimes you might want to test if a given SP provides correct EdDSA authentication or not.
 // It also helps if you want implement it on a non-browser environment.
 //
-// - spEndpoint: The sp endpoint, to which this API will register client's EdDSA public key. It can be found via https://docs.bnbchain.org/greenfield-docs/docs/greenfield-api/storage-providers .
+// - spEndpoint: The sp endpoint, to which this API will register client's EdDSA public key. It can be found via https://zk.me/mechain-docs/docs/mechain-api/storage-providers .
 //
 // - ret1: The register result when invoking SP UpdateUserPublicKey API.
 //

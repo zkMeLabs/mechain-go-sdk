@@ -15,8 +15,7 @@
   "GroupHub": "0xaC6d82150875fe05e2067F1f10d9B417fDfDe6a7",
   "PermissionHub": "0x1f1201DDF9915eacE0C5667b03406071355A8B1d",
   "MultiMessage": "0xDa62826DBBF7eCB3f49d25394e459801A75aCd1B",
-  "GreenfieldExecutor": "0x4B3924c11c1ac052eAFE81059C0A08242fC0B4a2",
-
+  "MechainExecutor": "0x4B3924c11c1ac052eAFE81059C0A08242fC0B4a2",
   "AdditionalBucketHub": "0xF111Dc80177BE7A66ca4C5f104a81221c7747f5e",
   "AdditionalObjectHub": "0x97660c058A56af2fDD2753b68742337714e51399",
   "AdditionalGroupHub": "0xa0FE4E322614655353CF13c4D635bcbbbA584149",
@@ -27,7 +26,7 @@
   "PermissionERC721Token": "0xdDC8f4053aEf86557ec331F61933f1AbdD3f4d95",
   "MemberERC1155Token": "0xCC79Ae19499E7CEEe7B8B9F3DE49a33789dC7d26",
   "initConsensusState": {
-    "chainID": "greenfield_9000-1741",
+    "chainID": "mechain_5151-1",
     "height": 1,
     "nextValidatorSetHash": "0xaf6b801dda578dddfa4da1d5d67fd1b32510db24ec271346fc573e9242b01c9a",
     "validators": [

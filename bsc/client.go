@@ -10,23 +10,23 @@ import (
 	"github.com/ethereum/go-ethereum/ethclient"
 	"google.golang.org/grpc"
 
-	"github.com/bnb-chain/greenfield-go-sdk/bsctypes"
-	"github.com/bnb-chain/greenfield-go-sdk/common"
+	"github.com/zkMeLabs/mechain-go-sdk/bsctypes"
+	"github.com/zkMeLabs/mechain-go-sdk/common"
 )
 
-// IClient - Declare all BSC SDK Client APIs, including APIs for multi messages & greenfield executor
+// IClient - Declare all BSC SDK Client APIs, including APIs for multi messages & mechain executor
 type IClient interface {
 	IMultiMessageClient
-	IGreenfieldExecutorClient
+	IMechainExecutorClient
 	IBasicClient
 	IAccountClient
 }
 
-// Client - The implementation for IClient, implement all Client APIs for Greenfield SDK.
+// Client - The implementation for IClient, implement all Client APIs for Mechain SDK.
 type Client struct {
 	// The chain Client is used to interact with the blockchain
 	chainClient *ethclient.Client
-	// The HTTP Client is used to send HTTP requests to the greenfield blockchain and sp
+	// The HTTP Client is used to send HTTP requests to the mechain blockchain and sp
 	httpClient *http.Client
 	// The default account to use when sending transactions.
 	defaultAccount *bsctypes.BscAccount

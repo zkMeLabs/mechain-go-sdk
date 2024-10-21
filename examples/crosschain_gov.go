@@ -5,13 +5,13 @@ import (
 	"log"
 
 	"cosmossdk.io/math"
-	"github.com/bnb-chain/greenfield-go-sdk/client"
-	"github.com/bnb-chain/greenfield-go-sdk/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 	govtypes "github.com/cosmos/cosmos-sdk/x/gov/types"
 	govv1 "github.com/cosmos/cosmos-sdk/x/gov/types/v1"
 	gnfdSdkTypes "github.com/evmos/evmos/v12/sdk/types"
+	"github.com/zkMeLabs/mechain-go-sdk/client"
+	"github.com/zkMeLabs/mechain-go-sdk/types"
 )
 
 func main() {
@@ -23,7 +23,7 @@ func main() {
 	proposalID, txHash, err := cli.SubmitProposal(
 		ctx,
 		[]sdk.Msg{parameterChange()}, // or upgradeContract() for upgrading contract
-		math.NewIntWithDecimal(1000, gnfdSdkTypes.DecimalBNB), // deposit, various from different env
+		math.NewIntWithDecimal(1000, gnfdSdkTypes.DecimalZKME), // deposit, various from different env
 		"Change BSC contract parameter",
 		"Change BSC contract parameter",
 		types.SubmitProposalOptions{TxOpts: gnfdSdkTypes.TxOption{}},

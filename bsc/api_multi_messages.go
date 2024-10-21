@@ -9,8 +9,8 @@ import (
 	"github.com/ethereum/go-ethereum/accounts/abi"
 	"github.com/ethereum/go-ethereum/common"
 
-	"github.com/bnb-chain/greenfield-go-sdk/bsctypes"
-	bsccommon "github.com/bnb-chain/greenfield-go-sdk/common"
+	"github.com/zkMeLabs/mechain-go-sdk/bsctypes"
+	bsccommon "github.com/zkMeLabs/mechain-go-sdk/common"
 )
 
 type IMultiMessageClient interface {

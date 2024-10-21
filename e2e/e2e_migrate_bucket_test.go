@@ -11,8 +11,8 @@ package e2e
 //
 //	"github.com/stretchr/testify/suite"
 //
-//	"github.com/bnb-chain/greenfield-go-sdk/e2e/basesuite"
-//	"github.com/bnb-chain/greenfield-go-sdk/types"
+//	"github.com/zkMeLabs/mechain-go-sdk/e2e/basesuite"
+//	"github.com/zkMeLabs/mechain-go-sdk/types"
 //	storageTestUtil "github.com/evmos/evmos/v12/testutil/storage"
 //	spTypes "github.com/evmos/evmos/v12/x/sp/types"
 //	storageTypes "github.com/evmos/evmos/v12/x/storage/types"
@@ -29,7 +29,7 @@ package e2e
 //	spList, err := s.Client.ListStorageProviders(s.ClientContext, false)
 //	s.Require().NoError(err)
 //	for _, sp := range spList {
-//		if sp.Endpoint != "https://sp0.greenfield.io" {
+//		if sp.Endpoint != "https://sp0.mechain.io" {
 //			s.PrimarySP = sp
 //			break
 //		}

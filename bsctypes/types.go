@@ -61,7 +61,7 @@ type Deployment struct {
 	GovHub                   string `json:"GovHub"`
 	CrossChain               string `json:"CrossChain"`
 	MultiMessage             string `json:"MultiMessage"`
-	GreenfieldExecutor       string `json:"GreenfieldExecutor"`
+	MechainExecutor          string `json:"MechainExecutor"`
 	TokenHub                 string `json:"TokenHub"`
 	LightClient              string `json:"LightClient"`
 	RelayerHub               string `json:"RelayerHub"`

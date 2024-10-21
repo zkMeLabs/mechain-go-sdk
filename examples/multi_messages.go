@@ -11,8 +11,8 @@ import (
 	"github.com/evmos/evmos/v12/types/resource"
 	"github.com/evmos/evmos/v12/x/permission/types"
 
-	"github.com/bnb-chain/greenfield-go-sdk/bsc"
-	"github.com/bnb-chain/greenfield-go-sdk/bsctypes"
+	"github.com/zkMeLabs/mechain-go-sdk/bsc"
+	"github.com/zkMeLabs/mechain-go-sdk/bsctypes"
 )
 
 func main() {
@@ -61,7 +61,7 @@ func main() {
 		},
 	}).CreateGroup(account.GetAddress(), account.GetAddress(), "test-group-1")
 
-	// transfer out money from bsc to greenfield
+	// transfer out money from bsc to mechain
 	_ = messages.TransferOut(account.GetAddress(), account.GetAddress(), big.NewInt(1e16))
 
 	// Create policy

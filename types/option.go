@@ -50,9 +50,9 @@ type SubmitProposalOptions struct {
 
 // CreateStorageProviderOptions indicates the metadata to construct `CreateStorageProvider` msg.
 type CreateStorageProviderOptions struct {
-	ReadPrice             sdk.Dec  // ReadPrice defines the storage provider's read price, in bnb wei per charge byte.
+	ReadPrice             sdk.Dec  // ReadPrice defines the storage provider's read price, in azkme wei per charge byte.
 	FreeReadQuota         uint64   // FreeReadQuota defines the free read quota of the SP.
-	StorePrice            sdk.Dec  // StorePrice defines the store price of the SP, in bnb wei per charge byte.
+	StorePrice            sdk.Dec  // StorePrice defines the store price of the SP, in azkme wei per charge byte.
 	ProposalDepositAmount math.Int // ProposalDepositAmount defines the amount needed for a proposal.
 	ProposalTitle         string
 	ProposalSummary       string

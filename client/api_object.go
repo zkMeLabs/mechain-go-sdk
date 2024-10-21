@@ -21,14 +21,14 @@ import (
 	"github.com/cosmos/cosmos-sdk/types/tx"
 	"github.com/rs/zerolog/log"
 
-	hashlib "github.com/bnb-chain/greenfield-common/go/hash"
-	"github.com/bnb-chain/greenfield-go-sdk/pkg/utils"
-	"github.com/bnb-chain/greenfield-go-sdk/types"
 	gnfdsdk "github.com/evmos/evmos/v12/sdk/types"
 	gnfdTypes "github.com/evmos/evmos/v12/types"
 	"github.com/evmos/evmos/v12/types/s3util"
 	permTypes "github.com/evmos/evmos/v12/x/permission/types"
 	storageTypes "github.com/evmos/evmos/v12/x/storage/types"
+	hashlib "github.com/zkMeLabs/mechain-common/go/hash"
+	"github.com/zkMeLabs/mechain-go-sdk/pkg/utils"
+	"github.com/zkMeLabs/mechain-go-sdk/types"
 )
 
 // IObjectClient interface defines functions related to object operations.
@@ -103,7 +103,7 @@ func (c *Client) ComputeHashRoots(reader io.Reader, isSerial bool) ([][]byte, in
 	return hashlib.ComputeIntegrityHash(reader, int64(segSize), int(dataBlocks), int(parityBlocks), isSerial)
 }
 
-// CreateObject get approval of creating object and send createObject txn to greenfield chain,
+// CreateObject get approval of creating object and send createObject txn to mechain chain,
 // it returns the transaction hash value and error
 func (c *Client) CreateObject(ctx context.Context, bucketName, objectName string,
 	reader io.Reader, opts types.CreateObjectOptions,
@@ -186,7 +186,7 @@ func (c *Client) CreateObject(ctx context.Context, bucketName, objectName string
 	return txnHash, nil
 }
 
-// UpdateObjectContent sends updateObjectContent tx to greenfield chain,
+// UpdateObjectContent sends updateObjectContent tx to mechain chain,
 // it returns the transaction hash value and error
 func (c *Client) UpdateObjectContent(ctx context.Context, bucketName, objectName string,
 	reader io.Reader, opts types.UpdateObjectOptions,
@@ -231,7 +231,7 @@ func (c *Client) UpdateObjectContent(ctx context.Context, bucketName, objectName
 	return txnHash, nil
 }
 
-// CancelUpdateObjectContent sends CancelUpdateObjectContent tx to greenfield chain,
+// CancelUpdateObjectContent sends CancelUpdateObjectContent tx to mechain chain,
 // it returns the transaction hash value and error
 func (c *Client) CancelUpdateObjectContent(ctx context.Context, bucketName, objectName string, opts types.CancelUpdateObjectOption) (string, error) {
 	if err := s3util.CheckValidBucketName(bucketName); err != nil {
@@ -246,7 +246,7 @@ func (c *Client) CancelUpdateObjectContent(ctx context.Context, bucketName, obje
 	return c.sendTxn(ctx, msg, opts.TxOpts)
 }
 
-// DeleteObject - Send DeleteObject msg to greenfield chain and return txn hash.
+// DeleteObject - Send DeleteObject msg to mechain chain and return txn hash.
 //
 // - ctx: Context variables for the current API call.
 //
@@ -272,7 +272,7 @@ func (c *Client) DeleteObject(ctx context.Context, bucketName, objectName string
 	return c.sendTxn(ctx, delObjectMsg, opt.TxOpts)
 }
 
-// CancelCreateObject send CancelCreateObject txn to greenfield chain
+// CancelCreateObject send CancelCreateObject txn to mechain chain
 func (c *Client) CancelCreateObject(ctx context.Context, bucketName, objectName string, opt types.CancelCreateOption) (string, error) {
 	if err := s3util.CheckValidBucketName(bucketName); err != nil {
 		return "", err
@@ -1167,7 +1167,7 @@ func (c *Client) GetCreateObjectApproval(ctx context.Context, createObjectMsg *s
 	return &signedMsg, nil
 }
 
-// CreateFolder send create empty object txn to greenfield chain
+// CreateFolder send create empty object txn to mechain chain
 func (c *Client) CreateFolder(ctx context.Context, bucketName, objectName string, opts types.CreateObjectOptions) (string, error) {
 	if !strings.HasSuffix(objectName, "/") {
 		return "", errors.New("failed to create folder. Folder names must end with a forward slash (/) character")
@@ -1178,7 +1178,7 @@ func (c *Client) CreateFolder(ctx context.Context, bucketName, objectName string
 	return txHash, err
 }
 
-// DelegateCreateFolder send create empty object txn to greenfield chain
+// DelegateCreateFolder send create empty object txn to mechain chain
 func (c *Client) DelegateCreateFolder(ctx context.Context, bucketName, objectName string, opts types.PutObjectOptions) error {
 	if !strings.HasSuffix(objectName, "/") {
 		return errors.New("failed to create folder. Folder names must end with a forward slash (/) character")

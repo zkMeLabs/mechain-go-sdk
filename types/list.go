@@ -236,7 +236,7 @@ type BucketMetaWithVGF struct {
 	// It is used to track the current state of the bucket with respect to off-chain operations,
 	// 1 means 0001 -> OffChainStatusIsLimited is true
 	// 0 means 0000 -> OffChainStatusIsLimited is false
-	// For an explanation of the different OffChainStatus values, please visit:https://github.com/bnb-chain/greenfield-storage-provider/blob/9d7048ad33cf51a2f7eb347e2113c5d0cc45f970/modular/blocksyncer/modules/bucket/bucket_handle.go#L40
+	// For an explanation of the different OffChainStatus values, please visit:https://github.com/zkMeLabs/mechain-storage-provider/blob/9d7048ad33cf51a2f7eb347e2113c5d0cc45f970/modular/blocksyncer/modules/bucket/bucket_handle.go#L40
 	OffChainStatus int32 `xml:"OffChainStatus"`
 }
 
@@ -264,7 +264,7 @@ type BucketMeta struct {
 	// It is used to track the current state of the bucket with respect to off-chain operations,
 	// 1 means 0001 -> OffChainStatusIsLimited is true
 	// 0 means 0000 -> OffChainStatusIsLimited is false
-	// For an explanation of the different OffChainStatus values, please visit:https://github.com/bnb-chain/greenfield-storage-provider/blob/9d7048ad33cf51a2f7eb347e2113c5d0cc45f970/modular/blocksyncer/modules/bucket/bucket_handle.go#L40
+	// For an explanation of the different OffChainStatus values, please visit:https://github.com/zkMeLabs/mechain-storage-provider/blob/9d7048ad33cf51a2f7eb347e2113c5d0cc45f970/modular/blocksyncer/modules/bucket/bucket_handle.go#L40
 	OffChainStatus int32 `xml:"OffChainStatus"`
 }
 

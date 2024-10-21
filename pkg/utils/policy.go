@@ -2,10 +2,10 @@ package utils
 
 import (
 	sdkmath "cosmossdk.io/math"
-	"github.com/bnb-chain/greenfield-go-sdk/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/evmos/evmos/v12/types/common"
 	permTypes "github.com/evmos/evmos/v12/x/permission/types"
+	"github.com/zkMeLabs/mechain-go-sdk/types"
 )
 
 // NewStatement return the statement of permission module

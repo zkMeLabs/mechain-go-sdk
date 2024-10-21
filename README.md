@@ -32,31 +32,31 @@ go mod init hellomechain
 ### Add SDK Dependencies
 
 ```sh
-go get github.com/bnb-chain/mechain-go-sdk
+go get github.com/zkMeLabs/mechain-go-sdk
 ```
 
 replace dependencies
 
 ```go.mod
-cosmossdk.io/api => github.com/bnb-chain/mechain-cosmos-sdk/api v0.0.0-20230816082903-b48770f5e210
-cosmossdk.io/math => github.com/bnb-chain/mechain-cosmos-sdk/math v0.0.0-20230816082903-b48770f5e210
-github.com/cometbft/cometbft => github.com/bnb-chain/mechain-cometbft v1.1.0
-github.com/cometbft/cometbft-db => github.com/bnb-chain/mechain-cometbft-db v0.8.1-alpha.1
-github.com/cosmos/cosmos-sdk => github.com/bnb-chain/mechain-cosmos-sdk v1.1.0
-github.com/cosmos/iavl => github.com/bnb-chain/mechain-iavl v0.20.1
-github.com/syndtr/goleveldb => github.com/syndtr/goleveldb v1.0.1-0.20210819022825-2ae1ddf74ef7
+cosmossdk.io/api => github.com/zkMeLabs/mechain-cosmos-sdk/api v0.0.0-20241017101002-ab985b5a45ec
+cosmossdk.io/math => github.com/zkMeLabs/mechain-cosmos-sdk/math v0.0.0-20241017101002-ab985b5a45ec
+cosmossdk.io/simapp => github.com/zkMeLabs/mechain-cosmos-sdk/simapp v0.0.0-20241017101002-ab985b5a45ec
+github.com/cometbft/cometbft => github.com/zkMeLabs/mechain-cometbft v1.3.0-mechain.2
+github.com/cometbft/cometbft-db => github.com/zkMeLabs/mechain-cometbft-db v0.8.1-alpha.1
 github.com/consensys/gnark-crypto => github.com/consensys/gnark-crypto v0.7.0
+github.com/cosmos/cosmos-sdk => github.com/zkMeLabs/mechain-cosmos-sdk v0.2.0-alpha.3
+github.com/cosmos/iavl => github.com/zkMeLabs/mechain-iavl v0.20.1
 ```
 
 ### Initialize Client
 
 The mechain client requires the following parameters to connect to mechain chain and storage providers.
 
-| Parameter             | Description                                       |
-|:----------------------|:--------------------------------------------------|
-| rpcAddr               | the tendermit address of mechain chain         |
-| chainId               | the chain id of mechain                        |
-| client.Option  | All the options such as DefaultAccount and secure |
+| Parameter     | Description                                       |
+| :------------ | :------------------------------------------------ |
+| rpcAddr       | the tendermit address of mechain chain            |
+| chainId       | the chain id of mechain                           |
+| client.Option | All the options such as DefaultAccount and secure |
 
 The DefaultAccount is need to set in options if you need send request to SP or send txn to mechain
 
@@ -67,8 +67,8 @@ import (
  "context"
  "log"
 
- "github.com/bnb-chain/mechain-go-sdk/client"
- "github.com/bnb-chain/mechain-go-sdk/types"
+ "github.com/zkMeLabs/mechain-go-sdk/client"
+ "github.com/zkMeLabs/mechain-go-sdk/types"
 )
 
 func main() {
@@ -78,8 +78,8 @@ func main() {
   log.Fatalf("New account from private key error, %v", err)
  }
 
- rpcAddr := "https://gnfd-testnet-fullnode-tendermint-us.bnbchain.org:443"
- chainId := "mechain_5600-1"
+ rpcAddr := "https://gnfd-testnet-fullnode-tendermint-us.mechain.org:443"
+ chainId := "mechain_5151-1"
  
  gnfdCLient, err := client.New(chainId, rpcAddr, client.Option{DefaultAccount: account})
  if err != nil {

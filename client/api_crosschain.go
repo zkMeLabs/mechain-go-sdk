@@ -27,17 +27,17 @@ type ICrossChainClient interface {
 	MirrorObject(ctx context.Context, destChainId sdk.ChainID, objectId math.Uint, bucketName, objectName string, txOption gnfdSdkTypes.TxOption) (*sdk.TxResponse, error)
 }
 
-// TransferOut - Make a transfer from Greenfield to BSC
+// TransferOut - Make a transfer from Mechain to BSC
 //
 // - ctx: Context variables for the current API call.
 //
 // - toAddress: The destination address in BSC.
 //
-// - amount: The amount of BNB to transfer.
+// - amount: The amount of azkme to transfer.
 //
 // - txOption: The txOption for sending transactions.
 //
-// - ret1: Transaction response from Greenfield.
+// - ret1: Transaction response from Mechain.
 //
 // - ret2: Return error if transaction failed, otherwise return nil.
 func (c *Client) TransferOut(ctx context.Context, toAddress string, amount math.Int, txOption gnfdSdkTypes.TxOption) (*sdk.TxResponse, error) {
@@ -52,7 +52,7 @@ func (c *Client) TransferOut(ctx context.Context, toAddress string, amount math.
 	return txResp.TxResponse, nil
 }
 
-// Claims - Claim cross-chain packages from BSC to Greenfield, used by relayers which run by validators
+// Claims - Claim cross-chain packages from BSC to Mechain, used by relayers which run by validators
 //
 // - ctx: Context variables for the current API call.
 //
@@ -72,7 +72,7 @@ func (c *Client) TransferOut(ctx context.Context, toAddress string, amount math.
 //
 // - txOption: The txOption for sending transactions.
 //
-// - ret1: Transaction response from Greenfield.
+// - ret1: Transaction response from Mechain.
 //
 // - ret2: Return error if transaction failed, otherwise return nil.
 func (c *Client) Claims(ctx context.Context, srcChainId, destChainId uint32, sequence uint64,
@@ -198,7 +198,7 @@ func (c *Client) GetCrossChainPackage(ctx context.Context, destChainId sdk.Chain
 //
 // - txOption: The txOption for sending transactions.
 //
-// - ret1: Transaction response from Greenfield.
+// - ret1: Transaction response from Mechain.
 //
 // - ret2: Return error if the transaction failed, otherwise return nil.
 func (c *Client) MirrorGroup(ctx context.Context, destChainId sdk.ChainID, groupId math.Uint, groupName string, txOption gnfdSdkTypes.TxOption) (*sdk.TxResponse, error) {
@@ -222,7 +222,7 @@ func (c *Client) MirrorGroup(ctx context.Context, destChainId sdk.ChainID, group
 //
 // - txOption: The txOption for sending transactions.
 //
-// - ret1: Transaction response from Greenfield.
+// - ret1: Transaction response from Mechain.
 //
 // - ret2: Return error if the transaction failed, otherwise return nil.
 func (c *Client) MirrorBucket(ctx context.Context, destChainId sdk.ChainID, bucketId math.Uint, bucketName string, txOption gnfdSdkTypes.TxOption) (*sdk.TxResponse, error) {
@@ -248,7 +248,7 @@ func (c *Client) MirrorBucket(ctx context.Context, destChainId sdk.ChainID, buck
 //
 // - txOption: The txOption for sending transactions.
 //
-// - ret1: Transaction response from Greenfield.
+// - ret1: Transaction response from Mechain.
 //
 // - ret2: Return error if the transaction failed, otherwise return nil.
 func (c *Client) MirrorObject(ctx context.Context, destChainId sdk.ChainID, objectId math.Uint, bucketName, objectName string, txOption gnfdSdkTypes.TxOption) (*sdk.TxResponse, error) {

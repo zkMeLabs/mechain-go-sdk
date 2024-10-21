@@ -21,8 +21,8 @@ import (
 	"github.com/cosmos/cosmos-sdk/types/tx"
 	"github.com/rs/zerolog/log"
 
-	"github.com/bnb-chain/greenfield-go-sdk/pkg/utils"
-	"github.com/bnb-chain/greenfield-go-sdk/types"
+	"github.com/zkMeLabs/mechain-go-sdk/pkg/utils"
+	"github.com/zkMeLabs/mechain-go-sdk/types"
 
 	gnfdsdk "github.com/evmos/evmos/v12/sdk/types"
 	gnfdTypes "github.com/evmos/evmos/v12/types"
@@ -67,7 +67,7 @@ type IBucketClient interface {
 //
 // - ctx: Context variables for the current API call.
 //
-// - createBucketMsg: The msg of create bucket which defined by the greenfield chain.
+// - createBucketMsg: The msg of create bucket which defined by the mechain chain.
 //
 // - ret1: The msg of create bucket which contain the approval signature from the storage provider
 //
@@ -123,9 +123,9 @@ func (c *Client) GetCreateBucketApproval(ctx context.Context, createBucketMsg *s
 	return &signedMsg, nil
 }
 
-// CreateBucket - Create a new bucket in greenfield.
+// CreateBucket - Create a new bucket in mechain.
 //
-// This API sends a request to the storage provider to get approval for creating  bucket and sends the createBucket transaction to the Greenfield.
+// This API sends a request to the storage provider to get approval for creating  bucket and sends the createBucket transaction to the Mechain.
 //
 // - ctx: Context variables for the current API call.
 //
@@ -221,7 +221,7 @@ func (c *Client) CreateBucket(ctx context.Context, bucketName string, primaryAdd
 	return txnHash, nil
 }
 
-// DeleteBucket - Send DeleteBucket msg to greenfield chain and return txn hash.
+// DeleteBucket - Send DeleteBucket msg to mechain chain and return txn hash.
 //
 // - ctx: Context variables for the current API call.
 //
@@ -246,7 +246,7 @@ func (c *Client) DeleteBucket(ctx context.Context, bucketName string, opt types.
 //
 // - bucketName: The name of the bucket to be updated.
 //
-// - visibility: The VisibilityType defines on greenfield which can be PUBLIC_READ, PRIVATE or INHERIT
+// - visibility: The VisibilityType defines on mechain which can be PUBLIC_READ, PRIVATE or INHERIT
 //
 // - opt: The Options for customizing the transaction.
 //
@@ -270,7 +270,7 @@ func (c *Client) UpdateBucketVisibility(ctx context.Context, bucketName string,
 	return c.sendTxn(ctx, updateBucketMsg, opt.TxOpts)
 }
 
-// UpdateBucketPaymentAddr - Update the payment address of bucket. It will send the MsgUpdateBucketInfo msg to greenfield to update the meta.
+// UpdateBucketPaymentAddr - Update the payment address of bucket. It will send the MsgUpdateBucketInfo msg to mechain to update the meta.
 //
 // - ctx: Context variables for the current API call.
 //
@@ -295,7 +295,7 @@ func (c *Client) UpdateBucketPaymentAddr(ctx context.Context, bucketName string,
 	return c.sendTxn(ctx, updateBucketMsg, opt.TxOpts)
 }
 
-// SetBucketFlowRateLimit - Set the flow rate limit of the bucket. It will send the MsgSetBucketFlowRateLimit msg to greenfield to update the meta.
+// SetBucketFlowRateLimit - Set the flow rate limit of the bucket. It will send the MsgSetBucketFlowRateLimit msg to mechain to update the meta.
 //
 // - ctx: Context variables for the current API call.
 //
@@ -347,7 +347,7 @@ func (c *Client) GetPaymentAccountFlowRateLimit(ctx context.Context, paymentAddr
 	return queryFlowRateLimitResp, nil
 }
 
-// UpdateBucketInfo - Update the bucket meta on chain, including read quota, payment address or visibility. It will send the MsgUpdateBucketInfo msg to greenfield to update the meta.
+// UpdateBucketInfo - Update the bucket meta on chain, including read quota, payment address or visibility. It will send the MsgUpdateBucketInfo msg to mechain to update the meta.
 //
 // - ctx: Context variables for the current API call.
 //
@@ -469,7 +469,7 @@ func (c *Client) HeadBucketByID(ctx context.Context, bucketID string) (*storageT
 //
 // - bucketName: The bucket name identifies the bucket.
 //
-// - principalStr: Indicates the marshaled principal content of greenfield permission types, users can generate it by NewPrincipalWithAccount or NewPrincipalWithGroupId method.
+// - principalStr: Indicates the marshaled principal content of mechain permission types, users can generate it by NewPrincipalWithAccount or NewPrincipalWithGroupId method.
 //
 // - statements: Policies outline the specific details of permissions, including the Effect, ActionList, and Resources.
 //
@@ -499,7 +499,7 @@ func (c *Client) PutBucketPolicy(ctx context.Context, bucketName string, princip
 //
 // - bucketName: The bucket name identifies the bucket.
 //
-// - principalStr: Indicates the marshaled principal content of greenfield permission types, users can generate it by NewPrincipalWithAccount or NewPrincipalWithGroupId method.
+// - principalStr: Indicates the marshaled principal content of mechain permission types, users can generate it by NewPrincipalWithAccount or NewPrincipalWithGroupId method.
 //
 // - opt: The option for send delete policy transaction.
 //
@@ -556,7 +556,7 @@ func (c *Client) IsBucketPermissionAllowed(ctx context.Context, userAddr string,
 //
 // - principalAddr: The HEX-encoded string of the principal address.
 //
-// - ret1: The bucket policy info defined on greenfield.
+// - ret1: The bucket policy info defined on mechain.
 //
 // - ret2: Return error when the request failed, otherwise return nil.
 func (c *Client) GetBucketPolicy(ctx context.Context, bucketName string, principalAddr string) (*permTypes.Policy, error) {
@@ -950,7 +950,7 @@ func (c *Client) ListBucketsByBucketID(ctx context.Context, bucketIds []uint64, 
 //
 // - ctx: Context variables for the current API call.
 //
-// - migrateBucketMsg: Indicates msg of migrating bucket which defined by greenfield
+// - migrateBucketMsg: Indicates msg of migrating bucket which defined by mechain
 //
 // - ret1: The msg of migrating bucket which contain the approval signature from the storage provider.
 //
@@ -1005,7 +1005,7 @@ func (c *Client) GetMigrateBucketApproval(ctx context.Context, migrateBucketMsg 
 	return &signedMsg, nil
 }
 
-// MigrateBucket - Get approval of migrating from SP, send the signed migrate bucket msg to greenfield chain and return the txn hash.
+// MigrateBucket - Get approval of migrating from SP, send the signed migrate bucket msg to mechain chain and return the txn hash.
 //
 // - ctx: Context variables for the current API call.
 //

@@ -1,4 +1,4 @@
 /*
-Package Client provides a Client for interact with greenfield storage network.
+Package Client provides a Client for interact with mechain storage network.
 */
 package client

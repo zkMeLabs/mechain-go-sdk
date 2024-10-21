@@ -9,7 +9,7 @@
   "CrossChain": "0xDdDc262A61076829c17a2a0EBa19c5f371D768E1",
   "TokenHub": "0x351dCd3799332904A66232ed463909A65D6AB04d",
   "MultiMessage": "0x5E76a2029f5410682Ea544746EfB2fbfA9Df14Ae",
-  "GreenfieldExecutor": "0x8A06Ba3F649904A6b67eE04ba20803218b12892b",
+  "MechainExecutor": "0x8A06Ba3F649904A6b67eE04ba20803218b12892b",
   "LightClient": "0xF7C5fCd28F36b945697eb435cC70626344BEcBAe",
   "RelayerHub": "0xcE5dC502ECB0AA21da00466a3e23d1c13B17E932",
   "BucketHub": "0x64Fa3128cd86A016fA3a6206F6cE466E1F18457f",
@@ -22,14 +22,11 @@
   "ObjectERC721Token": "0x3dD7C1A48cD1CBd8bfde2122a984aD42A4becbEB",
   "GroupERC721Token": "0x37cF4AA34EfE98FeB55B4b4d9E433B914563d0aC",
   "MemberERC1155Token": "0xdEEDd5c844adE6F77287F7F5Bfdfa513271a95E6",
-
   "PermissionDeployer": "0xf84F82B4263F38C67569F37CD0ac50b253a48fF7",
   "PermissionHub": "0xd4789A25be1A56aC2134B7f60A3f646dbE129435",
   "AdditionalPermissionHub": "0x44b14B221Df392e2353A16D8E934D8E52D6b6156",
-  "PermissionToken": "0xeF3527ed0989c1A893F223bA306751160065E502"
-
-  "initConsensusState": {
-    "chainID": "greenfield_8981-1",
+  "PermissionToken": "0xeF3527ed0989c1A893F223bA306751160065E502""initConsensusState": {
+    "chainID": "mechain_5151-1",
     "height": 1,
     "nextValidatorSetHash": "0xd36b35432bf13cbdd116682099aef1bd2b10b48568d2318c8976fde726f46cd4",
     "validators": [

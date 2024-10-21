@@ -5,16 +5,16 @@ import (
 	"fmt"
 
 	"cosmossdk.io/math"
-	"github.com/bnb-chain/greenfield-go-sdk/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	authTypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 	bankTypes "github.com/cosmos/cosmos-sdk/x/bank/types"
 	gnfdSdkTypes "github.com/evmos/evmos/v12/sdk/types"
 	evmostypes "github.com/evmos/evmos/v12/types"
 	paymentTypes "github.com/evmos/evmos/v12/x/payment/types"
+	"github.com/zkMeLabs/mechain-go-sdk/types"
 )
 
-// IAccountClient - Client APIs for operating Greenfield accounts.
+// IAccountClient - Client APIs for operating Mechain accounts.
 type IAccountClient interface {
 	SetDefaultAccount(account *types.Account)
 	GetDefaultAccount() (*types.Account, error)
@@ -259,13 +259,13 @@ func (c *Client) GetPaymentAccountsByOwner(ctx context.Context, owner string) ([
 	return paymentAccounts, nil
 }
 
-// Transfer - Transfer BNB from sender to receiver.
+// Transfer - Transfer azkme from sender to receiver.
 //
 // - ctx: Context variables for the current API call.
 //
-// - toAddress: The address who will receive the BNB.
+// - toAddress: The address who will receive the azkme.
 //
-// - amount: The BNB amount to transfer, 1e18 denotes 1BNB.
+// - amount: The azkme amount to transfer, 1e18 denotes 1azkme.
 //
 // - txOption: The txOption for sending transactions.
 //
@@ -285,7 +285,7 @@ func (c *Client) Transfer(ctx context.Context, toAddress string, amount math.Int
 	return tx.TxResponse.TxHash, nil
 }
 
-// MultiTransfer - Transfer BNB from sender to multiple receivers.
+// MultiTransfer - Transfer azkme from sender to multiple receivers.
 //
 // - ctx: Context variables for the current API call.
 //

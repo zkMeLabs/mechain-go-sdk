@@ -16,7 +16,7 @@ import (
 
 var letters = []rune("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
 
-// Principal indicates the marshaled Principal content of greenfield permission types,
+// Principal indicates the marshaled Principal content of mechain permission types,
 // user can generate it by NewPrincipalWithAccount or NewPrincipalWithGroupId method in utils.
 type Principal string
 
@@ -27,7 +27,7 @@ type ObjectStat struct {
 	Size        int64 // Object size
 }
 
-// ObjectDetail contains the detailed info of the object stored on Greenfield.
+// ObjectDetail contains the detailed info of the object stored on Mechain.
 type ObjectDetail struct {
 	ObjectInfo         *storagetypes.ObjectInfo  `protobuf:"bytes,1,opt,name=object_info" json:"object_info,omitempty"`
 	GlobalVirtualGroup *types.GlobalVirtualGroup `protobuf:"bytes,2,opt,name=global_virtual_group" json:"global_virtual_group,omitempty"`

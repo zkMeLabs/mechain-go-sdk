@@ -5,7 +5,6 @@ import (
 	"encoding/hex"
 
 	"cosmossdk.io/math"
-	"github.com/bnb-chain/greenfield-go-sdk/types"
 	"github.com/cosmos/cosmos-sdk/crypto/keys/ed25519"
 	cryptotypes "github.com/cosmos/cosmos-sdk/crypto/types"
 	sdktypes "github.com/cosmos/cosmos-sdk/types"
@@ -15,9 +14,10 @@ import (
 	slashingtypes "github.com/cosmos/cosmos-sdk/x/slashing/types"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 	gnfdsdktypes "github.com/evmos/evmos/v12/sdk/types"
+	"github.com/zkMeLabs/mechain-go-sdk/types"
 )
 
-// IValidatorClient - Client APIs for operating Greenfield validators and delegations.
+// IValidatorClient - Client APIs for operating Mechain validators and delegations.
 type IValidatorClient interface {
 	ListValidators(ctx context.Context, status string) (*stakingtypes.QueryValidatorsResponse, error)
 	CreateValidator(ctx context.Context, description stakingtypes.Description, commission stakingtypes.CommissionRates,
@@ -48,7 +48,7 @@ func (c *Client) ListValidators(ctx context.Context, status string) (*stakingtyp
 	return c.chainClient.StakingQueryClient.Validators(ctx, &stakingtypes.QueryValidatorsRequest{Status: status})
 }
 
-// CreateValidator - Submit a proposal to Greenfield for creating a validator, and return a proposal id and tx hash.
+// CreateValidator - Submit a proposal to Mechain for creating a validator, and return a proposal id and tx hash.
 //
 // - ctx: Context variables for the current API call.
 //
@@ -345,7 +345,7 @@ func (c *Client) UnJailValidator(ctx context.Context, txOption gnfdsdktypes.TxOp
 //
 // - validatorAddr: The address of the validator to impeach.
 //
-// - proposalDepositAmount: The amount of BNB to deposit to the proposal.
+// - proposalDepositAmount: The amount of azkme to deposit to the proposal.
 //
 // - proposalTitle: The title of the proposal.
 //

@@ -17,12 +17,12 @@ import (
 	"github.com/cosmos/cosmos-sdk/types/tx"
 	"github.com/rs/zerolog/log"
 
-	"github.com/bnb-chain/greenfield-go-sdk/pkg/utils"
-	"github.com/bnb-chain/greenfield-go-sdk/types"
 	gnfdsdk "github.com/evmos/evmos/v12/sdk/types"
 	gnfdTypes "github.com/evmos/evmos/v12/types"
 	permTypes "github.com/evmos/evmos/v12/x/permission/types"
 	storageTypes "github.com/evmos/evmos/v12/x/storage/types"
+	"github.com/zkMeLabs/mechain-go-sdk/pkg/utils"
+	"github.com/zkMeLabs/mechain-go-sdk/types"
 )
 
 // IGroupClient interface defines functions related to Group.
@@ -47,7 +47,7 @@ type IGroupClient interface {
 	ListGroupsByGroupID(ctx context.Context, groupIDs []uint64, opts types.EndPointOptions) (types.ListGroupsByGroupIDResponse, error)
 }
 
-// CreateGroup - Create a new group without group members on Greenfield blockchain, and group members can be added by UpdateGroupMember transaction.
+// CreateGroup - Create a new group without group members on Mechain blockchain, and group members can be added by UpdateGroupMember transaction.
 //
 // A `Group` is a collection of accounts that share the same permissions, allowing them to be handled as a single entity.
 //
@@ -59,7 +59,7 @@ type IGroupClient interface {
 // Create, Associate payment accounts
 // Grant, Revoke the above permissions
 //
-// # For more details regarding `Group`, please refer to https://docs.bnbchain.org/greenfield-docs/docs/guide/greenfield-blockchain/modules/permission
+// # For more details regarding `Group`, please refer to https://zk.me/mechain-docs/docs/guide/mechain-blockchain/modules/permission
 //
 // - ctx: Context variables for the current API call.
 //
@@ -95,7 +95,7 @@ func (c *Client) CreateGroup(ctx context.Context, groupName string, opt types.Cr
 	return txnHash, nil
 }
 
-// DeleteGroup - Delete a group on Greenfield blockchain. The sender MUST only be the group owner, group members or others would fail to send this transaction.
+// DeleteGroup - Delete a group on Mechain blockchain. The sender MUST only be the group owner, group members or others would fail to send this transaction.
 //
 // Note: Deleting a group will result in granted permission revoked. Members within the group will no longer have access to resources (bucket, object) which granted permission on.
 //

@@ -8,11 +8,11 @@ import (
 	"github.com/ethereum/go-ethereum/accounts/abi"
 	"github.com/ethereum/go-ethereum/common"
 
-	"github.com/bnb-chain/greenfield-go-sdk/bsctypes"
-	bsccommon "github.com/bnb-chain/greenfield-go-sdk/common"
+	"github.com/zkMeLabs/mechain-go-sdk/bsctypes"
+	bsccommon "github.com/zkMeLabs/mechain-go-sdk/common"
 )
 
-type IGreenfieldExecutorClient interface {
+type IMechainExecutorClient interface {
 	Execute(ctx context.Context, message *bsctypes.ExecutorMessages) (*common.Hash, error)
 }
 
@@ -27,7 +27,7 @@ func (c *Client) Execute(ctx context.Context, message *bsctypes.ExecutorMessages
 		log.Fatalf("failed to pack data for execute: %v", err)
 	}
 
-	contractAddress := common.HexToAddress(c.GetDeployment().GreenfieldExecutor)
+	contractAddress := common.HexToAddress(c.GetDeployment().MechainExecutor)
 	tx, err := c.SendTx(ctx, 0, &contractAddress, message.RelayFee, nil, packedData)
 	if err != nil {
 		log.Fatalf("failed to call contract: %v", err)

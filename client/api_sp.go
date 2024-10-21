@@ -11,13 +11,13 @@ import (
 	"github.com/cosmos/cosmos-sdk/types/query"
 
 	"cosmossdk.io/math"
-	"github.com/bnb-chain/greenfield-go-sdk/pkg/utils"
-	"github.com/bnb-chain/greenfield-go-sdk/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/x/authz"
 	govTypes "github.com/cosmos/cosmos-sdk/x/gov/types"
 	gnfdSdkTypes "github.com/evmos/evmos/v12/sdk/types"
 	spTypes "github.com/evmos/evmos/v12/x/sp/types"
+	"github.com/zkMeLabs/mechain-go-sdk/pkg/utils"
+	"github.com/zkMeLabs/mechain-go-sdk/types"
 )
 
 // ISPClient interface defines basic functions related to Storage Provider.
@@ -192,7 +192,7 @@ func (c *Client) CreateStorageProvider(ctx context.Context, fundingAddr, sealAdd
 		return 0, "", err
 	}
 	if opts.ProposalDepositAmount.IsNil() {
-		opts.ProposalDepositAmount = math.NewIntWithDecimal(1, gnfdSdkTypes.DecimalBNB)
+		opts.ProposalDepositAmount = math.NewIntWithDecimal(1, gnfdSdkTypes.DecimalZKME)
 	}
 	if opts.ReadPrice.IsNil() {
 		opts.ReadPrice = sdk.NewDec(1)
@@ -300,9 +300,9 @@ func (c *Client) GrantDepositForStorageProvider(ctx context.Context, spAddr stri
 //
 // - spAddr: The HEX-encoded string of the storage provider address.
 //
-// - readPrice: The read price of the SP, in bnb wei per charge byte.
+// - readPrice: The read price of the SP, in azkme wei per charge byte.
 //
-// - storePrice: The store price of the SP, in bnb wei per charge byte.
+// - storePrice: The store price of the SP, in azkme wei per charge byte.
 //
 // - freeReadQuota: The free read quota of the SP.
 //

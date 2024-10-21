@@ -4,8 +4,8 @@ import (
 	"context"
 	"log"
 
-	"github.com/bnb-chain/greenfield-go-sdk/client"
-	"github.com/bnb-chain/greenfield-go-sdk/types"
+	"github.com/zkMeLabs/mechain-go-sdk/client"
+	"github.com/zkMeLabs/mechain-go-sdk/types"
 )
 
 func main() {
@@ -23,7 +23,7 @@ func main() {
 			},
 		})
 	if err != nil {
-		log.Fatalf("unable to new greenfield client, %v", err)
+		log.Fatalf("unable to new mechain client, %v", err)
 	}
 	ctx := context.Background()
 	// list object

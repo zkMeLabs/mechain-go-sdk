@@ -10,9 +10,9 @@ import (
 
 	storageTypes "github.com/evmos/evmos/v12/x/storage/types"
 
-	"github.com/bnb-chain/greenfield-go-sdk/client"
-	"github.com/bnb-chain/greenfield-go-sdk/types"
 	"github.com/stretchr/testify/suite"
+	"github.com/zkMeLabs/mechain-go-sdk/client"
+	"github.com/zkMeLabs/mechain-go-sdk/types"
 )
 
 var (

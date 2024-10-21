@@ -86,7 +86,7 @@ func (c *Client) WithdrawDelegatorReward(ctx context.Context, validatorAddr stri
 //
 // - ctx: Context variables for the current API call.
 //
-// - amount: The amount of BNB to send.
+// - amount: The amount of azkme to send.
 //
 // - txOption: The txOption for sending transactions.
 //

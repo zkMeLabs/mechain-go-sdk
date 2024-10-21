@@ -6,8 +6,8 @@ import (
 
 	"github.com/evmos/evmos/v12/x/payment/types"
 
-	"github.com/bnb-chain/greenfield-go-sdk/bsc"
-	"github.com/bnb-chain/greenfield-go-sdk/bsctypes"
+	"github.com/zkMeLabs/mechain-go-sdk/bsc"
+	"github.com/zkMeLabs/mechain-go-sdk/bsctypes"
 )
 
 func main() {

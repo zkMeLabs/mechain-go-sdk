@@ -7,8 +7,8 @@ import (
 	"cosmossdk.io/math"
 	gnfdsdktypes "github.com/evmos/evmos/v12/sdk/types"
 
-	"github.com/bnb-chain/greenfield-go-sdk/client"
-	"github.com/bnb-chain/greenfield-go-sdk/types"
+	"github.com/zkMeLabs/mechain-go-sdk/client"
+	"github.com/zkMeLabs/mechain-go-sdk/types"
 )
 
 // it is the example of payment SDKs usage
@@ -19,7 +19,7 @@ func main() {
 	}
 	cli, err := client.New(chainId, rpcAddr, client.Option{DefaultAccount: account})
 	if err != nil {
-		log.Fatalf("unable to new greenfield client, %v", err)
+		log.Fatalf("unable to new mechain client, %v", err)
 	}
 	ctx := context.Background()
 	// create a payment account

@@ -7,9 +7,9 @@ import (
 )
 
 const (
-	libName   = "greenfield-go-sdk"
+	libName   = "mechain-go-sdk"
 	Version   = "v0.1.0"
-	UserAgent = "Greenfield (" + runtime.GOOS + "; " + runtime.GOARCH + ") " + libName + "/" + Version
+	UserAgent = "Mechain (" + runtime.GOOS + "; " + runtime.GOARCH + ") " + libName + "/" + Version
 
 	HTTPHeaderAuthorization = "Authorization"
 
@@ -40,7 +40,7 @@ const (
 	EmptyStringSHA256       = `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`
 	Iso8601DateFormatSecond = "2006-01-02T15:04:05Z"
 
-	AdminURLPrefix    = "/greenfield/admin"
+	AdminURLPrefix    = "/mechain/admin"
 	AdminURLV1Version = "/v1"
 	AdminURLV2Version = "/v2"
 	AdminV1Version    = 1

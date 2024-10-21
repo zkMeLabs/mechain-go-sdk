@@ -17,16 +17,16 @@ import (
 
 	"github.com/stretchr/testify/suite"
 
-	"github.com/bnb-chain/greenfield-go-sdk/client"
-	"github.com/bnb-chain/greenfield-go-sdk/e2e/basesuite"
-	"github.com/bnb-chain/greenfield-go-sdk/pkg/utils"
-	"github.com/bnb-chain/greenfield-go-sdk/types"
 	types2 "github.com/evmos/evmos/v12/sdk/types"
 	storageTestUtil "github.com/evmos/evmos/v12/testutil/storage"
-	greenfield_types "github.com/evmos/evmos/v12/types"
+	mechain_types "github.com/evmos/evmos/v12/types"
 	permTypes "github.com/evmos/evmos/v12/x/permission/types"
 	spTypes "github.com/evmos/evmos/v12/x/sp/types"
 	storageTypes "github.com/evmos/evmos/v12/x/storage/types"
+	"github.com/zkMeLabs/mechain-go-sdk/client"
+	"github.com/zkMeLabs/mechain-go-sdk/e2e/basesuite"
+	"github.com/zkMeLabs/mechain-go-sdk/pkg/utils"
+	"github.com/zkMeLabs/mechain-go-sdk/types"
 )
 
 type StorageTestSuite struct {
@@ -40,7 +40,7 @@ func (s *StorageTestSuite) SetupSuite() {
 	spList, err := s.Client.ListStorageProviders(s.ClientContext, false)
 	s.Require().NoError(err)
 	for _, sp := range spList {
-		if sp.Endpoint != "https://sp0.greenfield.io" && sp.Id == 1 {
+		if sp.Endpoint != "https://sp0.mechain.io" && sp.Id == 1 {
 			s.PrimarySP = sp
 			break
 		}
@@ -357,7 +357,7 @@ func (s *StorageTestSuite) Test_Group() {
 	grantUser, _, err := types.NewAccount("member2")
 	s.Require().NoError(err)
 
-	resp, err := s.Client.Transfer(s.ClientContext, grantUser.GetAddress().String(), math.NewIntWithDecimal(1, types2.DecimalBNB), types2.TxOption{})
+	resp, err := s.Client.Transfer(s.ClientContext, grantUser.GetAddress().String(), math.NewIntWithDecimal(1, types2.DecimalZKME), types2.TxOption{})
 	s.Require().NoError(err)
 	_, err = s.Client.WaitForTx(s.ClientContext, resp)
 	s.Require().NoError(err)
@@ -707,7 +707,7 @@ func (s *StorageTestSuite) Test_CreateGroup_And_Set_Tag() {
 	s.Require().NoError(err)
 	s.Require().Equal(groupName, headResult.GroupName)
 
-	grn := greenfield_types.NewGroupGRN(groupOwner, groupName)
+	grn := mechainfield_types.NewGroupGRN(groupOwner, groupName)
 	var tags storageTypes.ResourceTags
 	tags.Tags = append(tags.Tags, storageTypes.ResourceTags_Tag{Key: "key1", Value: "value1"})
 	tags.Tags = append(tags.Tags, storageTypes.ResourceTags_Tag{Key: "key2", Value: "value2"})
@@ -769,7 +769,7 @@ func (s *StorageTestSuite) Test_CreateBucket_And_Set_Tag() {
 	}
 
 	// set tag
-	grn := greenfield_types.NewBucketGRN(bucketName)
+	grn := mechain_types.NewBucketGRN(bucketName)
 	var tags storageTypes.ResourceTags
 	tags.Tags = append(tags.Tags, storageTypes.ResourceTags_Tag{Key: "key1", Value: "value1"})
 	tags.Tags = append(tags.Tags, storageTypes.ResourceTags_Tag{Key: "key2", Value: "value2"})
@@ -868,7 +868,7 @@ func (s *StorageTestSuite) Test_Object_And_Set_Tag() {
 	s.Require().Equal(objectDetail.ObjectInfo.GetObjectStatus().String(), "OBJECT_STATUS_CREATED")
 
 	// set tag
-	grn := greenfield_types.NewObjectGRN(bucketName, objectName)
+	grn := mechain_types.NewObjectGRN(bucketName, objectName)
 	var tags storageTypes.ResourceTags
 	tags.Tags = append(tags.Tags, storageTypes.ResourceTags_Tag{Key: "key1", Value: "value1"})
 	tags.Tags = append(tags.Tags, storageTypes.ResourceTags_Tag{Key: "key2", Value: "value2"})

@@ -12,9 +12,9 @@ on:
       - develop
 
 env:
-  GreenfieldTag: v1.6.0
-  GreenfieldStorageProviderTag: feat-get-recommended-vgf
-  GOPRIVATE: github.com/bnb-chain
+  MechainTag: v1.6.0
+  MechainStorageProviderTag: feat-get-recommended-vgf
+  GOPRIVATE: github.com/zkMeLabs
   GH_ACCESS_TOKEN: ${{ secrets.GH_TOKEN }}
   MYSQL_USER: root
   MYSQL_PASSWORD: root
@@ -54,44 +54,44 @@ jobs:
       - name: Setup GitHub Token
         run: git config --global url.https://$GH_ACCESS_TOKEN@github.com/.insteadOf https://github.com/
 
-      # Build Greenfield
-      - name: Build Greenfield
+      # Build Mechain
+      - name: Build Mechain
         run: |
-          git clone https://github.com/bnb-chain/greenfield.git ../greenfield
-          cd ../greenfield
-          git checkout ${{ env.GreenfieldTag }}
+          git clone https://github.com/zkMeLabs/mechain.git ../mechain
+          cd ../mechain
+          git checkout ${{ env.MechainTag }}
           go install github.com/bufbuild/buf/cmd/buf@v1.28.0
           make tools
           make proto-gen
           make build
           cd ..
-      # Build Greenfield-SP
-      - name: Build Greenfield-SP
+      # Build Mechain-SP
+      - name: Build Mechain-SP
         run: |
-          git clone https://github.com/bnb-chain/greenfield-storage-provider.git ../greenfield-storage-provider
-          cd ../greenfield-storage-provider
-          git checkout ${{ env.GreenfieldStorageProviderTag }}
+          git clone https://github.com/zkMeLabs/mechain-storage-provider.git ../mechain-storage-provider
+          cd ../mechain-storage-provider
+          git checkout ${{ env.MechainStorageProviderTag }}
           make install-tools
           make build
-          cd ../greenfield-go-sdk
+          cd ../mechain-go-sdk
       # Run MySQL
       - name: Run MySQL
         run: |
           sudo /etc/init.d/mysql start
           mysql -h ${{ env.MYSQL_IP }} -P ${{ env.MYSQL_PORT }} -u${{ env.MYSQL_USER }} -p${{ env.MYSQL_PASSWORD }} -e 'CREATE DATABASE sp_0; CREATE DATABASE sp_1;CREATE DATABASE sp_2; CREATE DATABASE sp_3;CREATE DATABASE sp_4; CREATE DATABASE sp_5; CREATE DATABASE sp_6;'
-      # Run Greenfield
-      - name: Run Greenfield
+      # Run Mechain
+      - name: Run Mechain
         run: |
-          cd ../greenfield
+          cd ../mechain
           bash ./deployment/localup/localup.sh all 1 8
           bash ./deployment/localup/localup.sh export_sps 1 8 > sp.json
           cat sp.json
-          cd ../greenfield-go-sdk
-      # Run Greenfield-SP
-      - name: Run Greenfield-SPs
+          cd ../mechain-go-sdk
+      # Run Mechain-SP
+      - name: Run Mechain-SPs
         run: |
-          cd ../greenfield-storage-provider
-          bash ./deployment/localup/localup.sh --generate $GITHUB_WORKSPACE/../greenfield/sp.json ${{ env.MYSQL_USER }} ${{ env.MYSQL_PASSWORD }} ${{ env.MYSQL_IP }}:${{ env.MYSQL_PORT }}
+          cd ../mechain-storage-provider
+          bash ./deployment/localup/localup.sh --generate $GITHUB_WORKSPACE/../mechain/sp.json ${{ env.MYSQL_USER }} ${{ env.MYSQL_PASSWORD }} ${{ env.MYSQL_IP }}:${{ env.MYSQL_PORT }}
           bash ./deployment/localup/localup.sh --reset
           bash ./deployment/localup/localup.sh --start
           sleep 60
@@ -105,7 +105,7 @@ jobs:
           ./deployment/localup/local_env/sp7/gnfd-sp7 update.quota  --quota 5000000000 -c deployment/localup/local_env/sp7/config.toml
           ps -ef | grep gnfd-sp | wc -l
           tail -n 1000 deployment/localup/local_env/sp0/gnfd-sp.log
-          cd ../greenfield-go-sdk
+          cd ../mechain-go-sdk
       # Run E2E Test
       - name: start e2e
         run: |
@@ -115,7 +115,7 @@ jobs:
           if [ $exit_status_command -eq 0 ]; then
             echo "make e2e_test successful."
           else
-            cd ../greenfield-storage-provider
+            cd ../mechain-storage-provider
             cat ./deployment/localup/local_env/sp0/log.txt
             cat ./deployment/localup/local_env/sp1/log.txt
             cat ./deployment/localup/local_env/sp2/log.txt

@@ -18,12 +18,12 @@ import (
 	"github.com/cosmos/cosmos-sdk/types/tx"
 	"google.golang.org/grpc"
 
-	gosdktypes "github.com/bnb-chain/greenfield-go-sdk/types"
 	"github.com/evmos/evmos/v12/sdk/types"
 	storageTypes "github.com/evmos/evmos/v12/x/storage/types"
+	gosdktypes "github.com/zkMeLabs/mechain-go-sdk/types"
 )
 
-// IBasicClient interface defines basic functions of greenfield Client.
+// IBasicClient interface defines basic functions of mechain Client.
 type IBasicClient interface {
 	EnableTrace(outputStream io.Writer, onlyTraceErr bool)
 
@@ -66,7 +66,7 @@ func (c *Client) EnableTrace(output io.Writer, onlyTraceErr bool) {
 	c.isTraceEnabled = true
 }
 
-// GetNodeInfo - Get the current node info of the greenfield that the Client is connected to.
+// GetNodeInfo - Get the current node info of the mechain that the Client is connected to.
 //
 // - ctx: Context variables for the current API call.
 //
@@ -416,7 +416,7 @@ func (c *Client) GetValidatorsByHeight(ctx context.Context, height int64) ([]*bf
 	return validatorSetResponse.Validators, nil
 }
 
-// BroadcastVote - Broadcast a vote to the Node's VotePool, it is used by Greenfield relayer and challengers by now.
+// BroadcastVote - Broadcast a vote to the Node's VotePool, it is used by Mechain relayer and challengers by now.
 //
 // - ctx: Context variables for the current API call.
 //
@@ -427,7 +427,7 @@ func (c *Client) BroadcastVote(ctx context.Context, vote votepool.Vote) error {
 	return c.chainClient.BroadcastVote(ctx, vote)
 }
 
-// QueryVote - Query a vote from the Node's VotePool, it is used by Greenfield relayer and challengers by now.
+// QueryVote - Query a vote from the Node's VotePool, it is used by Mechain relayer and challengers by now.
 //
 // - ctx: Context variables for the current API call.
 //
@@ -444,7 +444,7 @@ func (c *Client) QueryVote(ctx context.Context, eventType int, eventHash []byte)
 
 // SetTag - Set tag for a given existing resource GRN (a bucket, a object or a group)
 //
-// This API sends a request to the greenfield chain to set tags for the given resource.
+// This API sends a request to the mechain chain to set tags for the given resource.
 //
 // - ctx: Context variables for the current API call.
 //

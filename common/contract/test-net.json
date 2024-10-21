@@ -21,7 +21,7 @@
   "GroupERC721Token": "0x943FAC6CEBE6e45CE59bA911E5B6447c1a991450",
   "MemberERC1155Token": "0xAb73f243Be4d0fC5644c822351eC77e85DC2B5Ea",
   "initConsensusState": {
-    "chainID": "greenfield_1017-1",
+    "chainID": "mechain_5151-1",
     "height": 1,
     "nextValidatorSetHash": "0x2cf4e5d75b8db99c9f74196c44df182dd25d7a2ed184bc015cb818b81f293514",
     "validators": [

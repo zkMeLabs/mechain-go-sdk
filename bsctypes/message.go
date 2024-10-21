@@ -9,7 +9,7 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	permissiontype "github.com/evmos/evmos/v12/x/permission/types"
 
-	bsccommon "github.com/bnb-chain/greenfield-go-sdk/common"
+	bsccommon "github.com/zkMeLabs/mechain-go-sdk/common"
 )
 
 type IMessages interface {

@@ -21,18 +21,18 @@ import (
 	"github.com/rs/zerolog/log"
 	"google.golang.org/grpc"
 
-	hashlib "github.com/bnb-chain/greenfield-common/go/hash"
-	httplib "github.com/bnb-chain/greenfield-common/go/http"
-	"github.com/bnb-chain/greenfield-go-sdk/pkg/utils"
-	"github.com/bnb-chain/greenfield-go-sdk/types"
 	sdkclient "github.com/evmos/evmos/v12/sdk/client"
 	gnfdSdkTypes "github.com/evmos/evmos/v12/sdk/types"
 	permTypes "github.com/evmos/evmos/v12/x/permission/types"
 	storageTypes "github.com/evmos/evmos/v12/x/storage/types"
 	types2 "github.com/evmos/evmos/v12/x/virtualgroup/types"
+	hashlib "github.com/zkMeLabs/mechain-common/go/hash"
+	httplib "github.com/zkMeLabs/mechain-common/go/http"
+	"github.com/zkMeLabs/mechain-go-sdk/pkg/utils"
+	"github.com/zkMeLabs/mechain-go-sdk/types"
 )
 
-// IClient - Declare all Greenfield SDK Client APIs, including APIs for interacting with Greenfield Blockchain and SPs.
+// IClient - Declare all Mechain SDK Client APIs, including APIs for interacting with Mechain Blockchain and SPs.
 type IClient interface {
 	IBasicClient
 	IBucketClient
@@ -51,11 +51,11 @@ type IClient interface {
 	IAuthClient
 }
 
-// Client - The implementation for IClient, implement all Client APIs for Greenfield SDK.
+// Client - The implementation for IClient, implement all Client APIs for Mechain SDK.
 type Client struct {
 	// The chain Client is used to interact with the blockchain
-	chainClient *sdkclient.GreenfieldClient
-	// The HTTP Client is used to send HTTP requests to the greenfield blockchain and sp
+	chainClient *sdkclient.MechainClient
+	// The HTTP Client is used to send HTTP requests to the mechain blockchain and sp
 	httpClient *http.Client
 	// Service provider endpoints
 	storageProviders map[uint32]*types.StorageProvider
@@ -80,7 +80,7 @@ type Client struct {
 	forceToUseSpecifiedSpEndpointForDownloadOnly *url.URL
 }
 
-// Option - Configurations for providing optional parameters for the Greenfield SDK Client.
+// Option - Configurations for providing optional parameters for the Mechain SDK Client.
 type Option struct {
 	// GrpcDialOption is the list of gRPC dial options used to configure the connection to the blockchain node.
 	GrpcDialOption grpc.DialOption
@@ -143,11 +143,11 @@ type OffChainAuthOptionV2 struct {
 	PublicKey string
 }
 
-// New - New Greenfield Go SDK Client.
+// New - New Mechain Go SDK Client.
 //
-// - chainID: The Greenfield Blockchain's chainID that the Client would interact with.
+// - chainID: The Mechain Blockchain's chainID that the Client would interact with.
 //
-// - endpoint: The Greenfield Blockchain's RPC URL that the Client would interact with.
+// - endpoint: The Mechain Blockchain's RPC URL that the Client would interact with.
 //
 // - option: The optional configurations for the Client.
 //
@@ -159,13 +159,13 @@ func New(chainID string, endpoint string, option Option) (IClient, error) {
 		return nil, errors.New("fail to get grpcAddress and chainID to construct Client")
 	}
 	var (
-		cc  *sdkclient.GreenfieldClient
+		cc  *sdkclient.MechainClient
 		err error
 	)
 	if option.UseWebSocketConn {
-		cc, err = sdkclient.NewGreenfieldClient(endpoint, chainID, sdkclient.WithWebSocketClient())
+		cc, err = sdkclient.NewMechainClient(endpoint, chainID, sdkclient.WithWebSocketClient())
 	} else {
-		cc, err = sdkclient.NewGreenfieldClient(endpoint, chainID)
+		cc, err = sdkclient.NewMechainClient(endpoint, chainID)
 	}
 	if err != nil {
 		return nil, err
