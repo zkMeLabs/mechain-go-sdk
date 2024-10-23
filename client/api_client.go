@@ -21,6 +21,7 @@ import (
 	"github.com/rs/zerolog/log"
 	"google.golang.org/grpc"
 
+	"github.com/ethereum/go-ethereum/ethclient"
 	sdkclient "github.com/evmos/evmos/v12/sdk/client"
 	gnfdSdkTypes "github.com/evmos/evmos/v12/sdk/types"
 	permTypes "github.com/evmos/evmos/v12/x/permission/types"
@@ -78,6 +79,7 @@ type Client struct {
 	// forceToUseSpecifiedSpEndpointForDownloadOnly indicates a fixed SP endpoint to which to send the download request
 	// If this option is set, the client can only make download requests, and can only download from the fixed endpoint
 	forceToUseSpecifiedSpEndpointForDownloadOnly *url.URL
+	evmClient                                    *ethclient.Client
 }
 
 // Option - Configurations for providing optional parameters for the Mechain SDK Client.
@@ -154,8 +156,8 @@ type OffChainAuthOptionV2 struct {
 // - ret1: The new client that created, in IClient format.
 //
 // - ret2: Return error when new Client failed, otherwise return nil.
-func New(chainID string, endpoint string, option Option) (IClient, error) {
-	if endpoint == "" || chainID == "" {
+func New(chainID string, endpoint, evmEndpoint string, option Option) (IClient, error) {
+	if endpoint == "" || chainID == "" || evmEndpoint == "" {
 		return nil, errors.New("fail to get grpcAddress and chainID to construct Client")
 	}
 	var (
@@ -178,6 +180,11 @@ func New(chainID string, endpoint string, option Option) (IClient, error) {
 		return nil, errors.New("the configured expire time exceeds max expire time")
 	}
 
+	evmClient, err := ethclient.Dial(evmEndpoint)
+	if err != nil {
+		return nil, err
+	}
+
 	c := Client{
 		chainClient:      cc,
 		httpClient:       &http.Client{Transport: option.Transport},
@@ -188,6 +195,7 @@ func New(chainID string, endpoint string, option Option) (IClient, error) {
 		storageProviders: make(map[uint32]*types.StorageProvider),
 		useWebsocketConn: option.UseWebSocketConn,
 		expireSeconds:    option.ExpireSeconds,
+		evmClient:        evmClient,
 	}
 
 	if option.ForceToUseSpecifiedSpEndpointForDownloadOnly != "" {

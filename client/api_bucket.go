@@ -139,6 +139,10 @@ func (c *Client) GetCreateBucketApproval(ctx context.Context, createBucketMsg *s
 //
 // - ret2: Return error if create bucket failed, otherwise return nil.
 func (c *Client) CreateBucket(ctx context.Context, bucketName string, primaryAddr string, opts types.CreateBucketOptions) (string, error) {
+	return c.createBucketEvm(ctx, bucketName, primaryAddr, opts)
+}
+
+func (c *Client) createBucketCosmos(ctx context.Context, bucketName string, primaryAddr string, opts types.CreateBucketOptions) (string, error) {
 	address, err := sdk.AccAddressFromHexUnsafe(primaryAddr)
 	if err != nil {
 		return "", err
@@ -615,6 +619,10 @@ func (m *listBucketsByIDsResponse) UnmarshalXML(d *xml.Decoder, start xml.StartE
 //
 // - ret2: Return error when the request failed, otherwise return nil.
 func (c *Client) ListBuckets(ctx context.Context, opts types.ListBucketsOptions) (types.ListBucketsResult, error) {
+	return c.listBucketsEvm(ctx, opts)
+}
+
+func (c *Client) listBucketsCosmos(ctx context.Context, opts types.ListBucketsOptions) (types.ListBucketsResult, error) {
 	params := url.Values{}
 	params.Set("include-removed", strconv.FormatBool(opts.ShowRemovedBucket))
 

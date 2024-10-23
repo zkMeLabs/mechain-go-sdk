@@ -82,6 +82,10 @@ func (c *Client) GetGlobalSpStorePrice(ctx context.Context) (*spTypes.GlobalSpSt
 //
 // - ret2: Return error when the request failed, otherwise return nil.
 func (c *Client) ListStorageProviders(ctx context.Context, isInService bool) ([]spTypes.StorageProvider, error) {
+	return c.listStorageProvidersCosmos(ctx, isInService)
+}
+
+func (c *Client) listStorageProvidersCosmos(ctx context.Context, isInService bool) ([]spTypes.StorageProvider, error) {
 	request := &spTypes.QueryStorageProvidersRequest{}
 	gnfdRep, err := c.chainClient.StorageProviders(ctx, request)
 	if err != nil {
